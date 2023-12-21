@@ -14,16 +14,35 @@ nameLight.css('color', '#1C1C1C');
 
 $(window).scroll(function() {
   let scrollTop = $(window).scrollTop();
+  let windowHeight = $(window).height();
 
   // Logo (star) spin
   logo.css('transform', 'rotate(' + scrollTop + 'deg)');
 
   // Fade out project arrow
-  if ($(this).scrollTop() > 20)
+  if (scrollTop > 20)
     arrow.fadeTo(120, 0);
   else
     arrow.fadeTo(120, 1);
+
+  // Project reveal (slide in animation) on scroll
+  $('.flex-item').each(function() {
+    let topOffset = $(this).offset().top;
+
+    if (topOffset < scrollTop + windowHeight && !$(this).hasClass('project-animate')) {
+      let boxDelay = Math.random() * 0.75;
+      let videoDelay = boxDelay + 1;
+
+      $(this).css('animation-delay', boxDelay + 's');
+      $(this).addClass('project-animate');
+
+      $(this).children('.project-video').css('animation-delay', videoDelay + 's');
+      $(this).children('.project-video').addClass('project-video-animate');
+    }
+  });
 });
+
+$(window).trigger('scroll');
 
 logo.mouseenter(function() {
     nameBasic.css('display', 'block');
@@ -89,7 +108,7 @@ let projects = [];
 for (let i = 0; i < numProjects; i++)
   projects[i] = ($(".flex-item").eq(i));
 
-// Title always has same height (same font and size) but width of title changes
+// Project titles always have same height (same font and size) but width changes
 let height = projects[0].children('.project-title').height() / 2;
 let widths = [];
 
@@ -111,14 +130,6 @@ for (let i = 0; i < numProjects; i++) {
   projects[i].mouseleave(function() { projects[i].children('.project-title').hide(); });
 }
 
-// Handle the playing/pausing of videos via hover
-// let videos = $(".project-video");
-
-// videos.each(function() {
-//   $(this).on("mouseover", function() { this.play(); })
-//          .on("mouseout", function() { this.pause(); });
-// });
-
 // Take user to appropriate project description page based on clicked project
 function raytracer() { window.location.href = 'projects/raytracer.html'; }
 function heterogeneousFog() { window.location.href = 'projects/heterogeneousfog.html'; }
@@ -130,14 +141,3 @@ function escape() { window.location.href = 'projects/escape.html'; }
 function drawingWithSound() { window.location.href = 'projects/drawingwithsound.html'; }
 function whenTheSun() { window.location.href = 'projects/whenthesun.html'; }
 function shapes() { window.location.href = 'projects/shapes.html'; }
-
-// $("#raytracer").onclick(function() { window.location.href = 'projects/raytracer.html'; });
-// $("#heterogeneousFog").click(function() { window.location.href = 'projects/heterogeneousfog.html'; });
-// $("#covid19EmotionAnalysis").click(function() { window.location.href = 'projects/covid19emotionanalysis.html'; });
-// $("#tracesOfYou").click(function() { window.location.href = 'projects/tracesofyou.html'; });
-// $("#bodyController").click(function() { window.location.href = 'projects/bodycontroller.html'; });
-// $("#flyMeToTheMoon").click(function() { window.location.href = 'projects/flymetothemoon.html'; });
-// $("#escape").click(function() { window.location.href = 'projects/escape.html'; });
-// $("#drawingWithSound").click(function() { window.location.href = 'projects/drawingwithsound.html'; });
-// $("#whenTheSun").click(function() { window.location.href = 'projects/whenthesun.html'; });
-// $("#shapes").click(function() { window.location.href = 'projects/shapes.html'; });

@@ -58,7 +58,7 @@ header {
   border-radius: 50%;
   border: none;
   transform-origin: center center;
-  z-index: 10;
+  z-index: 1000;
 }
 
 .menu h1 {
@@ -83,6 +83,7 @@ header {
   margin: 30px 30px;
   padding-top: 45px;
   text-align: left;
+  z-index: 100;
 }
 
 nav {
@@ -144,6 +145,31 @@ h1 {
   transition: all 0.5s ease-out;
   backface-visibility: hidden;
   width: 100%;
+  opacity: 0;
+}
+
+.project-video {
+  background: var(--mid-color);
+  opacity: 0;
+}
+
+.project-animate  {
+  animation: projectBoxAnimation 0.8s forwards;
+}
+
+.project-video-animate  {
+  animation: projectVideoAnimation 0.8s forwards;
+}
+
+/* Slide reveal animations */
+@keyframes projectBoxAnimation {
+  from { clip-path: polygon(0 0, 100% 0, 100% 0, 0 0); opacity: 1; }
+  to { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); opacity: 1; }
+}
+
+@keyframes projectVideoAnimation {
+  from { clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%); opacity: 1; }
+  to { clip-path: polygon(0 100%, 100% 100%, 100% 0, 0 0); opacity: 1; }
 }
 
 /* Darken bright video to better blend with color scheme  */
@@ -362,9 +388,6 @@ h1 {
 
   .name {
     display: none !important;
-    /* font-size: 18px;
-    margin-top: -20px;
-    margin-left: 85px; */
   }
 
   #project-content .cell-left, #project-content .cell-right, #project-info, #about-content .cell-left, #about-content .cell-right, #cv-content .cell-left, #cv-content .cell-right {
