@@ -1,4 +1,6 @@
-// Intro screen variables
+/************************************************** VARIABLES **************************************************/
+
+// Intro screen
 const textContainer1 = $('#intro-line1');
 const textContainer2 = $('#intro-line2');
 const line1 = 'AMANDA';
@@ -10,11 +12,31 @@ const maxShuffles = 3;
 let numShuffles = 0;
 let shuffles = 0;
 
-// Returns a random character from a string
+// Buttons
+const logo = $('.logo');
+const nameBasic = $('.name');
+const logoDark = $('.logo-dark');
+const logoLight = $('.logo-light');
+const nameDark = $('.name-dark');
+const nameLight = $('.name-light');
+const arrow = $('.arrow');
+const menu = $('.menu');
+const menuButton = $('.menu button');
+const navLinks = $('.menu a');
+const nav = $('nav');
+const menuButtonDark = $('.menu-dark button');
+const menuButtonLight = $('.menu-light button');
+let navFlag = false;
+
+
+/************************************************** FUNCTIONS **************************************************/
+
+// Return a random character from a string
 function getRandomChar(str) {
   return chars.charAt(Math.floor(Math.random() * str.length));
 }
 
+// Shuffle the characters in a line
 function shuffleCharacters(textContainer, line, str, index) {
   let text = textContainer.text();
 
@@ -30,6 +52,7 @@ function shuffleCharacters(textContainer, line, str, index) {
   }
 }
 
+// Reveal a line of text
 function revealLine(textContainer, line, str, index, delay) {
   setTimeout(() => {
     if (index < line.length) {
@@ -58,59 +81,20 @@ function fadeOut(x, speed, i, delay) {
   setTimeout(() => {$(x).css('display', 'none')}, delay + 600);
 }
 
-// Button variables
-const logo = $('.logo');
-const nameBasic = $('.name');
-const logoDark = $('.logo-dark');
-const logoLight = $('.logo-light');
-const nameDark = $('.name-dark');
-const nameLight = $('.name-light');
-const arrow = $('.arrow');
-const menu = $('.menu');
-const menuButton = $('.menu button');
-const navLinks = $('.menu a');
-const nav = $('nav');
-const menuButtonDark = $('.menu-dark button');
-const menuButtonLight = $('.menu-light button');
-let navFlag = false;
-
-function buttonStyling() {
-  logoDark.css('background-color', '#FFF');
-  logoLight.css('background-color', '#1C1C1C');
-  nameDark.css('color', '#FFF');
-  nameLight.css('color', '#1C1C1C');
-}
-
-function handleIntroScrolling() {
-  // Disable intro screen scrolling
-  if (window.location.href.endsWith("index.html")) {
-    // Disable scrolling initially
+// Disable scrolling during intro, enable after
+function disableIntroScrolling() {
+  if (window.location.href.endsWith('index.html')) {
     $('body').css('overflow', 'hidden');
-
-    // Enable scrolling after intro
     setTimeout(() => { $('body').css('overflow', 'auto'); }, introDelay);
   }
 }
 
-revealLine(textContainer1, line1, chars, 0, 160);
-revealLine(textContainer2, line2, chars, 0, 160);
-buttonStyling();
-handleIntroScrolling();
-
-// Star rotate on scroll, and logo styling affected by user interactions
-// logoDark.css('background-color', '#FFF');
-// logoLight.css('background-color', '#1C1C1C');
-// nameDark.css('color', '#FFF');
-// nameLight.css('color', '#1C1C1C');
-
-// Fade out intro screen
-fadeOut(introScreen, 0.1, 50, 3500);
-setTimeout(() => { introScreen.css('style', 'none'); }, introDelay);
-
+// Rotate logo as user scrolls
 function rotateLogo(scrollTop) {
   logo.css('transform', 'rotate(' + scrollTop + 'deg)');
 }
 
+// Display/hide arrows for project description pages
 function handleArrows(scrollTop) {
   // Fade out project arrow
   if (scrollTop > 20)
@@ -119,6 +103,7 @@ function handleArrows(scrollTop) {
     arrow.fadeTo(120, 1);
 }
 
+// Reveal projects as user scrolls
 function animateProjects(scrollTop, windowHeight) {
   $('.flex-item-animated').each(function() {
     let topOffset = $(this).offset().top;
@@ -136,6 +121,7 @@ function animateProjects(scrollTop, windowHeight) {
   });
 }
 
+// Animate logo, arrows and projects
 function animateContent() {
   let scrollTop = $(window).scrollTop();
   let windowHeight = $(window).height();
@@ -146,38 +132,39 @@ function animateContent() {
   animateProjects(scrollTop, windowHeight);
 }
 
-// Call for content to be displayed once automatically after intro, then subsequently call on scroll
-setTimeout(() => { animateContent(); }, introDelay);
-$(window).scroll(function() { animateContent(); });
-
-// Mostly styling and some hover effects
+// Button styling and hover effects
 function handleButtons() {
+  logoDark.css('background-color', '#FFF');
+  logoLight.css('background-color', '#1C1C1C');
+  nameDark.css('color', '#FFF');
+  nameLight.css('color', '#1C1C1C');
+
   logo.mouseenter(() => {
       nameBasic.css('display', 'block');
       logo.css('transform', 'rotate(180deg)');
       logoDark.css('background-color', '#1C1C1C');
       logoLight.css('background-color', '#FFF');
-      logoLight.find("a").css('color', '#1C1C1C');
+      logoLight.find('a').css('color', '#1C1C1C');
   });
   
   logo.mouseleave(() => {
       nameBasic.css('display', 'none');
       logoDark.css('background-color', '#FFF');
       logoLight.css('background-color', '#1C1C1C');
-      logoLight.find("a").css('color', '#FFF');
+      logoLight.find('a').css('color', '#FFF');
   });
 
   menuButtonDark.css('background-color', '#FFF');
-  menuButtonDark.find("h1").css('color', '#1C1C1C');
+  menuButtonDark.find('h1').css('color', '#1C1C1C');
 
   menuButtonLight.css('background-color', '#1C1C1C');
-  menuButtonLight.find("h1").css('color', '#FFF');
+  menuButtonLight.find('h1').css('color', '#FFF');
 
-  // Menu button expands nav on hover, and menu button logo rotates 90deg
+  // Menu button expands nav on hover
   menuButton.mouseenter(() => {
     menuButton.css('transform', 'rotate(90deg)');
     menuButtonDark.css('background-color', '#1C1C1C');
-    menuButtonDark.find("h1").css('color', '#FFF');
+    menuButtonDark.find('h1').css('color', '#FFF');
     menuButtonLight.css('background-color', '#FFF');
     menuButtonLight.find('h1').css('color', '#1C1C1C');
     nav.css('display', 'block');
@@ -187,7 +174,7 @@ function handleButtons() {
     if (!navFlag) {
       menuButton.css('transform', 'rotate(180deg)');
       menuButtonDark.css('background-color', '#FFF');
-      menuButtonDark.find("h1").css('color', '#1C1C1C');
+      menuButtonDark.find('h1').css('color', '#1C1C1C');
       menuButtonLight.css('background-color', '#1C1C1C');
       menuButtonLight.find('h1').css('color', '#FFF');
       nav.css('display', 'none');
@@ -196,41 +183,45 @@ function handleButtons() {
 
   // Keep nav open when menu button clicked
   menuButton.click(() => { navFlag = !navFlag; });
-
 }
 
-handleButtons();
+// Display and animate project titles
+function handleProjectTitles() {
+  let projects = $('.flex-item');
+  let projectTitles = [];
+  const numProjects = projects.length;
+  
+  // Display title on hover
+  for (let i = 0; i < numProjects; i++) {
+    projectTitles[i] = projects.eq(i).children('.project-title');
 
-// Project title follow mouse on hover code
-let numProjects = $('.flex-item').length;
-let projects = [];
-
-for (let i = 0; i < numProjects; i++)
-  projects[i] = $('.flex-item').eq(i);
-
-// Project titles always have same height (same font and size) but width changes
-let height = projects[0].children('.project-title').height() / 2;
-let widths = [];
-
-for (let i = 0; i < numProjects; i++)
-  widths[i] = projects[i].children('.project-title').width() / 2;
-
-$(document).mousemove(function(e) {
-    for (let i = 0; i < numProjects; i++) {
-      projects[i].children('.project-title').css({
-          left: e.pageX - widths[i],
-          top: e.pageY - height
-      });
-      projects[i].children('.project-title').css('z-index', '100');
-    }
-});
-
-for (let i = 0; i < numProjects; i++) {
-  projects[i].mouseenter(function() { projects[i].children('.project-title').show(); });
-  projects[i].mouseleave(function() { projects[i].children('.project-title').hide(); });
+    projects.eq(i).mouseenter(function() {
+      projectTitles[i].show();
+    }).mouseleave(function() {
+        projectTitles[i].hide();
+    });
+  }
+  
+  // Titles all have same height but different widths
+  const height = projectTitles[0].height() / 2;
+  let widths = [];
+  
+  for (let i = 0; i < numProjects; i++)
+    widths[i] = projectTitles[i].width() / 2;
+  
+  // Make title follows mouse
+  $(document).mousemove(function(e) {
+      for (let i = 0; i < numProjects; i++) {
+        projectTitles[i].css({
+            left: e.pageX - widths[i],
+            top: e.pageY - height,
+            zIndex: 100
+        });
+      }
+  });
 }
 
-// Take user to appropriate project description page based on clicked project
+// Take user to appropriate project description page when a project is clicked
 function raytracer() { window.location.href = 'projects/raytracer.html'; }
 function heterogeneousFog() { window.location.href = 'projects/heterogeneousfog.html'; }
 function covid19EmotionAnalysis() { window.location.href = 'projects/covid19emotionanalysis.html'; }
@@ -241,3 +232,23 @@ function escape() { window.location.href = 'projects/escape.html'; }
 function drawingWithSound() { window.location.href = 'projects/drawingwithsound.html'; }
 function whenTheSun() { window.location.href = 'projects/whenthesun.html'; }
 function shapes() { window.location.href = 'projects/shapes.html'; }
+
+
+/************************************************** FUNCTION CALLS **************************************************/
+
+// Intro screen
+disableIntroScrolling();
+revealLine(textContainer1, line1, chars, 0, 160);
+revealLine(textContainer2, line2, chars, 0, 160);
+fadeOut(introScreen, 0.1, 50, 3500);
+setTimeout(() => { introScreen.css('style', 'none'); }, introDelay);
+
+// Display/animate project page content once automatically after intro, then subsequently call function on scroll
+setTimeout(() => { animateContent(); }, introDelay);
+$(window).scroll(function() { animateContent(); });
+
+// Buttons
+handleButtons();
+
+// Animate project titles
+handleProjectTitles();

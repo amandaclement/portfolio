@@ -22,7 +22,7 @@ body {
 
 #intro-content {
   position: fixed;
-  top: 43%;
+  top: 40%;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -159,11 +159,11 @@ h1 {
   color: var(--accent-color);
   cursor: none;
   width: 100%;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 }
 
 .flex-item-animated {
   transition: all 0.5s ease-out;
-  backface-visibility: hidden;
   opacity: 0;
 }
 
