@@ -224,7 +224,7 @@ function handleProjectTitles() {
 // Take user to appropriate project description page when a project is clicked
 function raytracer() { window.location.href = 'projects/raytracer.html'; }
 function heterogeneousFog() { window.location.href = 'projects/heterogeneousfog.html'; }
-function covid19EmotionAnalysis() { window.location.href = 'projects/covid19emotionanalysis.html'; }
+function covid19EmotionMap() { window.location.href = 'projects/covid19emotionmap.html'; }
 function tracesOfYou() { window.location.href = 'projects/tracesofyou.html'; }
 function bodyController() { window.location.href = 'projects/bodycontroller.html'; }
 function flyMeToTheMoon() { window.location.href = 'projects/flymetothemoon.html'; }
