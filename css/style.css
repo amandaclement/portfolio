@@ -240,6 +240,11 @@ h1 {
   pointer-events: none;
 }
 
+.project-desc {
+  display: none;
+  background-color: var(--mid-color);
+}
+
 #container-about {
   width: 100%;
   background-color: var(--mid-color);
@@ -356,7 +361,7 @@ h1 {
 
 #project-info {
   line-height: 23px;
-  width: 60%;
+  width: 54%;
   margin: 70px auto;
 }
 

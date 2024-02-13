@@ -1,6 +1,7 @@
 /************************************************** VARIABLES **************************************************/
 
 // Intro screen
+const body = $('body');
 const textContainer1 = $('#intro-line1');
 const textContainer2 = $('#intro-line2');
 const line1 = 'AMANDA';
@@ -27,6 +28,135 @@ const nav = $('nav');
 const menuButtonDark = $('.menu-dark button');
 const menuButtonLight = $('.menu-light button');
 let navFlag = false;
+
+// Project descriptions
+let flexContainer = $('.flex-container');
+let projectDesc = $('.project-desc');
+let projectDescVideo = $('#project-desc-video');
+let projectDescTitle = $('#project-desc-title');
+let projectDescType = $('#project-desc-type');
+let projectDescDescription = $('#project-desc-description');
+let projectDescTechnologies = $('#project-desc-technologies');
+let projectDescYear = $('#project-desc-year');
+let projectDescLinkType = $('#project-desc-link-type');
+let projectDescLink = $('#project-desc-link a');
+
+const videoPaths = [
+  'assets/videos/raytracer.mp4',
+  'assets/videos/heterogeneousfog.mp4',
+  'assets/videos/covid19emotionmap.mp4',
+  'assets/videos/tracesofyou.mp4',
+  'assets/videos/bodycontroller.mp4',
+  'assets/videos/flymetothemoon.mp4',
+  'assets/videos/escape.mp4',
+  'assets/videos/drawingwithsound.mp4',
+  'assets/videos/whenthesun.mp4',
+  'assets/videos/musicalshapes.mp4'
+];
+
+const titles = [
+  'Raytracer',
+  'Heterogeneous Fog',
+  'COVID-19 Emotion Map',
+  'Traces of You',
+  'Body Controller',
+  'Fly Me to the Moon',
+  'Escape',
+  'Drawing With Sound',
+  'When the Sun Goes Down',
+  'Musical Shapes'
+];
+
+const types = [
+  'Computer Graphics',
+  'Computer Graphics',
+  'Data Visualization / Web Design',
+  'Game Design / Game Development',
+  'Research-Creation / Game Design / Game Development',
+  'Game Design / Game Development',
+  'Game Design / Game Development',
+  'Generative Art / Creative Coding / Web Design',
+  'Game Design',
+  'Creative Coding / Web Design'
+];
+
+const descriptions = [
+  'A raytracer built from scratch using C++. It supports sphere and rectangle primitives, local illumination (point and area lights) using Blinn-Phong shading, and anti-aliasing using stratified random subpixel sampling. Integration of global illumination via path-tracing still in progress.',
+  'A real-time rendering of heterogeneous fog in OpenGL. The objective was to strike a balance between the uniformity of homogeneous fog, which often lacks realism, and the computational demands of volumetric fog, known for its realistic appearance.<br><br>The heterogeneous fog model augments exponential fog by integrating Perlin turbulence (the layering of Perlin noise octaves) into the equation to achieve a greater amount of shape and detail.',
+  'An interactive web-based data visualization illustrating the emotional impact of the COVID-19 pandemic. Each dot represents a Tweet posted on March 11th, 2020, the day the WHO declared the COVID-19 outbreak a global pandemic, coloured by emotion.<br><br>The visualization invites users to witness the emotions embedded within global discourse, painting a picture of collective sentiment in the face of adversity.',
+  'A short narrative game about love, loss and the enduring power of reminiscence. Players are invited to explore the home of a lost loved one, toggling between past and present, uncovering the heartache and beauty that linger within the walls of memory.',
+  'Guided by the question "how can a system be designed to engage the lived body during play?" this research-creation project explores embodied interaction within digital games. The system, comprising a body controller and a computer-based game, challenges our sense of balance — an aspect often overlooked in virtual gameplay experiences.<br><br>Ultimately, this project examines the potential of unconventional interfaces between humans and digital games to promote situated and enacted forms of cognition through heightened bodily awareness.',
+  'A short, lighthearted game where players help their astronaut friend rebuild their spaceship after crashing in an unfamiliar area. They must navigate a vibrant landscape to collect the scattered spaceship parts.',
+  'A short game set in an eerie abandoned campsite. Players must navigate the darkness and escape before their flashlight battery drains.',
+  'An interactive web-based experience that visualizes sound through patterns. Changes in specific audio characteristics picked up by the user\'s microphone are translated into visual elements that combine to create a symphony of shapes and colors.',
+  'A narrative pixel-art game about restless self-searching and solitude. It portrays a journey of wandering through empty yet evocative spaces in the night, where one yearns for comfort and closeness amidst the darkness.',
+  'An interactive web-based experience centred on visual stimulation. In this dynamic exploration of shape and sound, the characteristics of each scene change in response to mouse interactions.'
+];
+
+const technologies = [
+  'C++',
+  'C++ / OpenGL',
+  'JavaScript / Node.js / Express.js / MongoDB / p5.js / HTML / CSS',
+  'C# / Unity',
+  'C# / C++ / Arduino / Unity',
+  'C# / Unity',
+  'C# / Unity',
+  'JavaScript / Node.js / Express.js / MongoDB / p5.js / HTML / CSS',
+  'Bitsy (HTML5)',
+  'JavaScript / p5.js / HTML / CSS'
+];
+
+const years = [
+  '2023',
+  '2023',
+  '2022',
+  '2022',
+  '2021',
+  '2021',
+  '2021',
+  '2020',
+  '2019',
+  '2019'
+];
+
+const linkTypes = [
+  'source code',
+  'source code',
+  'source code',
+  'video demo',
+  'video demo',
+  'game link',
+  'game link',
+  'source code',
+  'game link',
+  'project website'
+];
+
+const links = [
+  'https://github.com/amandaclement/raytracer',
+  'https://github.com/amandaclement/heterogeneous_fog',
+  'https://github.com/amandaclement/cart451/tree/master/prototype',
+  'https://www.youtube.com/watch?v=nL7VJ2ocClI',
+  'https://youtu.be/tfeZZ38HUl0',
+  'https://amandaclement.itch.io/fly-me-to-the-moon',
+  'https://amandaclement.itch.io/escape',
+  'https://github.com/amandaclement/drawingWithSound',
+  'https://amandaclement.itch.io/when-the-sun-goes-down',
+  'https://amandaclement.github.io/cart253/projects/project3/index.html'
+];
+
+const linkNames = [
+  'GitHub',
+  'GitHub',
+  'GitHub',
+  'YouTube',
+  'YouTube',
+  'itch.io',
+  'itch.io',
+  'GitHub',
+  'itch.io',
+  'Link'
+];
 
 
 /************************************************** FUNCTIONS **************************************************/
@@ -84,7 +214,7 @@ function fadeOut(x, speed, i, delay) {
 // Disable scrolling during intro, enable after
 function disableIntroScrolling() {
   if (window.location.href.endsWith('index.html')) {
-    $('body').css('overflow', 'hidden');
+    body.css('overflow', 'hidden');
     setTimeout(() => { $('body').css('overflow', 'auto'); }, introDelay);
   }
 }
@@ -190,48 +320,59 @@ function handleProjectTitles() {
   let projects = $('.flex-item');
   let projectTitles = [];
   const numProjects = projects.length;
-  
-  // Display title on hover
+
+  // Display title on hover and calculate height and widths
   for (let i = 0; i < numProjects; i++) {
     projectTitles[i] = projects.eq(i).children('.project-title');
 
+    // Display title on hover
     projects.eq(i).mouseenter(function() {
       projectTitles[i].show();
     }).mouseleave(function() {
-        projectTitles[i].hide();
+      projectTitles[i].hide();
+    });
+
+    // Make title follow mouse
+    $(document).mousemove(function(e) {
+      const height = projectTitles[i].height() / 2;
+      const width = projectTitles[i].width() / 2;
+
+      projectTitles[i].css({
+        left: e.pageX - width,
+        top: e.pageY - height,
+        zIndex: 100
+      });
     });
   }
-  
-  // Titles all have same height but different widths
-  const height = projectTitles[0].height() / 2;
-  let widths = [];
-  
-  for (let i = 0; i < numProjects; i++)
-    widths[i] = projectTitles[i].width() / 2;
-  
-  // Make title follows mouse
-  $(document).mousemove(function(e) {
-      for (let i = 0; i < numProjects; i++) {
-        projectTitles[i].css({
-            left: e.pageX - widths[i],
-            top: e.pageY - height,
-            zIndex: 100
-        });
-      }
-  });
 }
 
-// Take user to appropriate project description page when a project is clicked
-function raytracer() { window.location.href = 'projects/raytracer.html'; }
-function heterogeneousFog() { window.location.href = 'projects/heterogeneousfog.html'; }
-function covid19EmotionMap() { window.location.href = 'projects/covid19emotionmap.html'; }
-function tracesOfYou() { window.location.href = 'projects/tracesofyou.html'; }
-function bodyController() { window.location.href = 'projects/bodycontroller.html'; }
-function flyMeToTheMoon() { window.location.href = 'projects/flymetothemoon.html'; }
-function escape() { window.location.href = 'projects/escape.html'; }
-function drawingWithSound() { window.location.href = 'projects/drawingwithsound.html'; }
-function whenTheSun() { window.location.href = 'projects/whenthesun.html'; }
-function shapes() { window.location.href = 'projects/shapes.html'; }
+// Display and update project description to reflect clicked project
+function displayProjectDescription(index) {
+  flexContainer.css('display', 'none');
+  projectDesc.css('display', 'block');
+
+  projectDescVideo.attr('src', videoPaths[index]);
+  projectDescTitle.append(titles[index]);
+  projectDescType.append(types[index]);
+  projectDescDescription.append(descriptions[index]);
+  projectDescTechnologies.append(technologies[index]);
+  projectDescYear.append(years[index]);
+  projectDescLinkType.append(linkTypes[index]);
+  projectDescLink.attr('href', links[index]);
+  projectDescLink.append(linkNames[index]);
+}
+
+// Show appropriate project description on project click
+function raytracer() { displayProjectDescription(0); }
+function heterogeneousFog() { displayProjectDescription(1); }
+function covid19EmotionMap() { displayProjectDescription(2); }
+function tracesOfYou() { displayProjectDescription(3); }
+function bodyController() { displayProjectDescription(4); }
+function flyMeToTheMoon() { displayProjectDescription(5); }
+function escape() { displayProjectDescription(6); }
+function drawingWithSound() { displayProjectDescription(7); }
+function whenTheSun() { displayProjectDescription(8); }
+function musicalShapes() { displayProjectDescription(9); }
 
 
 /************************************************** FUNCTION CALLS **************************************************/
