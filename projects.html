@@ -15,131 +15,39 @@
 
   <body>
     <div id="container">
-    <header>
-      <!-- LOGO -->
+      <header>
+        <!-- LOGO -->
         <button class="logo logo-dark">
           <h1 class="star star-dark"><a href="projects.html">*</a></h1>
         </button>
         <h1 class="name name-dark">AMANDA<br>CLEMENT</h1>
 
-       <!-- MENU -->
+        <!-- MENU -->
         <div class="menu menu-dark">
-        <button>
-          <h1>-<br>-</h1>
-        </button>
-        <nav class="nav-dark">
-          <a href="projects.html">PROJECTS</a><br>
-          <a href="about.html">ABOUT</a><br>
-          <a href="cv.html">CV</a>
-        </nav>
-      </div>
-    </header>
+          <button>
+            <h1>-<br>-</h1>
+          </button>
+          <nav class="nav-dark">
+            <a href="projects.html">PROJECTS</a><br>
+            <a href="about.html">ABOUT</a><br>
+            <a href="cv.html">CV</a>
+          </nav>
+        </div>
+      </header>
 
-    <!-- PROJECTS -->
-      <div class="flex-container">
-
-        <!-- RAYTRACER -->
-        <div class="flex-cell">
-          <div class="flex-item">
-            <h2 class="project-title">raytracer</h2>
-            <video class="project-video" onclick="raytracer()" width="100%" autoplay playsinline loop muted>
-              <source src="assets/videos/raytracer.mp4" type="video/mp4">
+      <!-- PROJECT BOX -->
+      <div class="project-container">
+        <div class="project-template">
+          <div class="project-item">
+            <h2 class="project-title"></h2>
+            <video class="project-video" width="100%" autoplay playsinline loop muted>
+              <source src="" type="video/mp4">
             </video>
           </div>
         </div>
-
-        <!-- HETEROGENEOUS FOG -->
-        <div class="flex-cell">
-          <div class="flex-item">
-            <h2 class="project-title">heterogeneous fog</h2>
-            <video class="project-video" class="video-filter" onclick="heterogeneousFog()" width="100%" autoplay playsinline loop muted>
-              <source src="assets/videos/heterogeneousfog.mp4" type="video/mp4">
-            </video>
-          </div>
-        </div>
-
-        <!-- COVID 19 EMOTION ANALYSIS DATA VISUALIZATION -->
-          <div class="flex-cell">
-            <div class="flex-item">
-              <h2 class="project-title">covid-19 emotion map</h2>
-              <video class="project-video" onclick="covid19EmotionMap()" width="100%" autoplay playsinline loop muted>
-                <source src="assets/videos/covid19emotionmap.mp4" type="video/mp4">
-              </video>
-            </div>
-          </div>
-
-          <!-- TRACES OF YOU -->
-          <div class="flex-cell">
-            <div class="flex-item">
-              <h2 class="project-title">traces of you</h2>
-              <video class="project-video" onclick="tracesOfYou()" width="100%" autoplay playsinline loop muted>
-                <source src="assets/videos/tracesofyou.mp4" type="video/mp4">
-              </video>
-            </div>
-          </div>
-
-          <!-- BODY CONTROLLER -->
-          <div class="flex-cell">
-            <div class="flex-item">
-              <h2 class="project-title">body controller</h2>
-              <video class="project-video" class="video-filter" onclick="bodyController()" width="100%" autoplay playsinline loop muted>
-                <source src="assets/videos/bodycontroller.mp4" type="video/mp4">
-              </video>
-            </div>
-          </div>
-
-          <!-- FLY ME HOME -->
-          <div class="flex-cell">
-            <div class="flex-item">
-              <h2 class="project-title">fly me to the moon</h2>
-              <video class="project-video" onclick="flyMeToTheMoon()" width="100%" autoplay playsinline loop muted>
-                <source src="assets/videos/flymetothemoon.mp4" type="video/mp4">
-              </video>
-            </div>
-          </div>
-
-          <!-- ESCAPE -->
-          <div class="flex-cell">
-            <div class="flex-item">
-              <h2 class="project-title">escape</h2>
-              <video class="project-video" onclick="escape()" width="100%" autoplay playsinline loop muted>
-                <source src="assets/videos/escape.mp4" type="video/mp4">
-              </video>
-            </div>
-          </div>
-
-          <!-- DRAWING WITH SOUND -->
-          <div class="flex-cell">
-            <div class="flex-item">
-              <h2 class="project-title">drawing with sound</h2>
-              <video class="project-video" onclick="drawingWithSound()" width="100%" autoplay playsinline loop muted>
-                <source src="assets/videos/drawingwithsound.mp4" type="video/mp4">
-              </video>
-            </div>
-          </div>
-
-          <!-- WHEN THE SUN GOES DOWN -->
-          <div class="flex-cell">
-            <div class="flex-item">
-              <h2 class="project-title">when the sun goes down</h2>
-              <video class="project-video" onclick="whenTheSun()" width="100%" autoplay playsinline loop muted>
-                <source src="assets/videos/whenthesun.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-              </video>
-            </div>
-          </div>
-
-          <!-- SHAPES -->
-          <div class="flex-cell">
-            <div class="flex-item">
-              <h2 class="project-title">musical shapes</h2>
-              <video class="project-video" onclick="musicalShapes()" width="100%" autoplay playsinline loop muted>
-                <source src="assets/videos/musicalshapes.mp4" type="video/mp4">
-              </video>
-            </div>
-          </div>
       </div>
 
+      <!-- PROJECT DESCRIPTION -->
       <div class="project-desc">
         <div id="project-content">
           <video id="project-desc-video" width="54%" playsinline loop muted autoplay>
@@ -179,7 +87,6 @@
             </div>
         </div>
       </div>
-
 
     </div>
     <script src="js/script.js"></script>
