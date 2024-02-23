@@ -176,6 +176,22 @@ $(document).ready(function() {
     }
   ];
 
+  // Bio title on about page
+  let bioContainer = $('#bio-container');
+  let bioTitles = [
+    'front-end developer', 
+    'back-end developer', 
+    'web developer', 'game developer', 
+    'creative technologist', 
+    'designer too'
+  ];
+
+  const typingSpeed = 100;
+  const erasingSpeed = 30;
+  const titleDelay = 1000;
+  let titleIndex = 0;
+  let charIndex = 0;
+
 
   /************************************************** FUNCTIONS **************************************************/
 
@@ -412,6 +428,63 @@ $(document).ready(function() {
     }
   }
 
+  // Type bio titles
+  function typeBioTitle() {
+    if (titleIndex < bioTitles.length) {
+        // Get current bio title
+        let currentTitle = bioTitles[titleIndex];
+        
+        // Type each character of current title
+        if (charIndex < currentTitle.length) {
+            // Append the next character to bio container
+            bioContainer.text(bioContainer.text() + currentTitle[charIndex]);
+            charIndex++;
+
+            // Recursive call to continue typing current title
+            setTimeout(typeBioTitle, typingSpeed);
+        } else {
+            // Erase current title
+            setTimeout(eraseBioTitle, titleDelay);
+        }
+    } else {
+        // Reset the title index to 0 for continuous loop
+        titleIndex = 0;
+
+        // Start typing bio titles again
+        setTimeout(typeBioTitle, typingSpeed);
+    }
+  }
+
+  // Erase bio titles
+  function eraseBioTitle() {
+    // Get the current text in the bio container
+    let currentText = bioContainer.text();
+    
+    // Erase one character at a time
+    if (currentText.length > 0) {
+        // Remove last character from bio container
+        bioContainer.text(currentText.substring(0, currentText.length - 1));
+
+        // Recursive call to continue erasing text
+        setTimeout(eraseBioTitle, erasingSpeed);
+    } else {
+        // Move to next title after erasing
+        setTimeout(nextTitle, erasingSpeed);
+    }
+  }
+
+  // Move to next bio title
+  function nextTitle() {
+    bioContainer.empty();
+
+    // Reset the character index and move to next title
+    charIndex = 0;
+    titleIndex++;
+
+    // Start typing next title
+    setTimeout(typeBioTitle, typingSpeed);
+  }
+
 
   /************************************************** FUNCTION CALLS **************************************************/
 
@@ -434,5 +507,8 @@ $(document).ready(function() {
 
   // Animate project titles
   handleProjectTitles();
+
+  // Type/erase bio titles on about page
+  typeBioTitle();
 
 });

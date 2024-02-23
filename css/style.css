@@ -315,6 +315,10 @@ h1 {
   color: var(--mid-color);
 }
 
+.comment {
+  color: #6B9955;
+}
+
 #container-cv .row a {
   color: var(--mid-color);
 }
