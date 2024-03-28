@@ -14,18 +14,11 @@ $(document).ready(function() {
   let shuffles = 0;
 
   // Buttons
-  const logo = $('.logo');
-  const nameBasic = $('.name');
-  const logoDark = $('.logo-dark');
-  const logoLight = $('.logo-light');
-  const nameDark = $('.name-dark');
-  const nameLight = $('.name-light');
+  const logo = $('.logo button');
   const arrow = $('.arrow');
-  const menu = $('.menu');
   const menuButton = $('.menu button');
+  const menu = $('.menu');
   const nav = $('nav');
-  const menuButtonDark = $('.menu-dark button');
-  const menuButtonLight = $('.menu-light button');
   let navFlag = false;
 
   // Project data
@@ -243,51 +236,16 @@ $(document).ready(function() {
     animateProjects(scrollTop, windowHeight);
   }
 
-  // Button styling and hover effects
-  function handleButtons() {
-    logoDark.css('background-color', '#FFF');
-    logoLight.css('background-color', '#1C1C1C');
-    nameDark.css('color', '#FFF');
-    nameLight.css('color', '#1C1C1C');
-
-    logo.mouseenter(() => {
-        nameBasic.css('display', 'block');
-        logo.css('transform', 'rotate(180deg)');
-        logoDark.css('background-color', '#1C1C1C');
-        logoLight.css('background-color', '#FFF');
-        logoLight.find('a').css('color', '#1C1C1C');
-    });
-    
-    logo.mouseleave(() => {
-        nameBasic.css('display', 'none');
-        logoDark.css('background-color', '#FFF');
-        logoLight.css('background-color', '#1C1C1C');
-        logoLight.find('a').css('color', '#FFF');
-    });
-
-    menuButtonDark.css('background-color', '#FFF');
-    menuButtonDark.find('h1').css('color', '#1C1C1C');
-
-    menuButtonLight.css('background-color', '#1C1C1C');
-    menuButtonLight.find('h1').css('color', '#FFF');
-
-    // Menu button expands nav on hover
+  // Toggle nav on menu button click and preserve button styling when nav open
+  function handleMenu() {
     menuButton.mouseenter(() => {
-      menuButton.css('transform', 'rotate(90deg)');
-      menuButtonDark.css('background-color', '#1C1C1C');
-      menuButtonDark.find('h1').css('color', '#FFF');
-      menuButtonLight.css('background-color', '#FFF');
-      menuButtonLight.find('h1').css('color', '#1C1C1C');
+      menuButton.addClass('menu-active');
       nav.css('display', 'block');
     });
 
-    menu.mouseleave(function() {
+    menu.mouseleave(() => {
       if (!navFlag) {
-        menuButton.css('transform', 'rotate(180deg)');
-        menuButtonDark.css('background-color', '#FFF');
-        menuButtonDark.find('h1').css('color', '#1C1C1C');
-        menuButtonLight.css('background-color', '#1C1C1C');
-        menuButtonLight.find('h1').css('color', '#FFF');
+        menuButton.removeClass('menu-active');
         nav.css('display', 'none');
       }
     });
@@ -347,25 +305,23 @@ $(document).ready(function() {
     // Loop over each key/value pair in selected project data, creating corresponding elements
     $.each(data, function(key, value) {
       const rowElement = $('<div>').addClass('row');
-      const leftCell = $('<div>').addClass('cell-left');
-      const rightCell = $('<div>').addClass('cell-right');
-      let leftContent, rightContent;
+      const contentContainer = $('<div>');
+      let heading, content;
 
       if (key === 'link') {
-        leftContent = $('<h4>').text(value.type);
-        rightContent = $('<a>')
+        heading = $('<h4>').text(value.type);
+        content = $('<a>')
           .attr('href', value.url)
           .attr('target', '_blank')
           .text(value.name);
       } else if (key !== 'videoPath') {
-        leftContent = $('<h4>').text(key);
-        rightContent = $('<p>').html(value);
+        heading = $('<h4>').text(key);
+        content = $('<p>').html(value);
       }
       
       // Append the content to the appropriate elements
-      leftCell.append(leftContent);
-      rightCell.append(rightContent);
-      rowElement.append(leftCell, rightCell);
+      contentContainer.append(content);
+      rowElement.append(heading, contentContainer);
       projectInfo.append(rowElement);
     });
   }
@@ -468,8 +424,8 @@ $(document).ready(function() {
   setTimeout(() => { animateContent(); }, introDelay);
   $(window).scroll(function() { animateContent(); });
 
-  // Buttons
-  handleButtons();
+  // Menu
+  handleMenu();
 
   // Populate index with projects
   populateIndex();

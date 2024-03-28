@@ -1,38 +1,30 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&family=Roboto+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
     <title>Amanda Clement: About</title>
-
-    <!-- jQuery CDN -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="js/script.js" defer></script>
   </head>
 
   <body>
-
     <div id="container-about">
       <header>
         <!-- LOGO -->
-          <button class="logo logo-dark">
-            <h1 class="star star-dark"><a href="projects.html">*</a></h1>
-          </button>
-          <h1 class="name name-dark">AMANDA<br>CLEMENT</h1>
+        <div class="logo">
+          <button><a href="projects.html">*</a></button>
+          <h1>amanda<br>clement</h1>
+        </div>
 
-          <!-- MENU -->
-          <div class="menu menu-dark">
-          <button>
-            <h1>-<br>-</h1>
-          </button>
-          <nav class="nav-dark">
-            <a href="projects.html">PROJECTS</a><br>
-            <a href="about.html">ABOUT</a><br>
-            <a href="resume.html">RESUME</a>
+        <!-- MENU -->
+        <div class="menu">
+          <button><p>&#9868;</p></button>
+          <nav class="nav">
+            <a href="projects.html">projects</a><br>
+            <a href="about.html">about</a><br>
+            <a href="resume.html">resume</a>
           </nav>
         </div>
       </header>
@@ -41,27 +33,26 @@
 
       <!-- BIOGRAPHY -->
       <div class="row">
-        <div class="cell-left"><h4>biography</h4></div>
-        <div class="cell-right">
+        <h4>biography</h4>
+        <div>
           <p>
             <span class="comment">/* I'm Amanda, a <span id="bio-container"></span> */</span><br>
-             I'm Amanda, a multidisciplinary developer/designer from Montreal. Informed by computer science, design and art, I’m drawn to opportunities that blend my technical skills and creativity. I'm particularly interested in human-computer interaction and creative coding, but I'm happy to embrace all types of experiences and challenges that foster growth, innovation, and exploration.<br><br>
-             What I’m currently up to: taking a React Udemy course and (casually) working on my personal project <i>Spaces Between Us</i>.</p>
-        </div>
+              I'm Amanda, a multidisciplinary developer/designer from Montreal. Informed by computer science, design and art, I’m drawn to opportunities that blend my technical skills and creativity. I'm particularly interested in human-computer interaction and creative coding, but I'm happy to embrace all types of experiences and challenges that foster growth, innovation, and exploration.
+          </p>
+      </div>
       </div>
 
       <!-- CONTACT -->
       <div class="row">
-        <div class="cell-left"><h4>contact</h4></div>
-        <div class="cell-right">
+        <h4>contact</h4>
+        <div>
           <a href="mailto: amanda_clement@outlook.com">amanda_clement@outlook.com</a><br>
-          <a href="https://www.linkedin.com/in/amanda-clement/" target="_blank">linkedin.com/amanda-clement</a>
+          <a href="https://www.linkedin.com/in/amanda-clement/" target="_blank">linkedin.com/in/amanda-clement</a>
         </div>
       </div>
 
     </div>
   </div>
-    <script src="js/script.js"></script>
   </body>
 
 </html>

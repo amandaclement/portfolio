@@ -1,38 +1,30 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&family=Roboto+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
     <title>Amanda Clement: Resume</title>
-
-    <!-- jQuery CDN -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="js/script.js" defer></script>
   </head>
 
   <body>
-
     <div id="container-cv">
       <header>
         <!-- LOGO -->
-          <button class="logo logo-light">
-            <h1 class="star star-light"><a href="projects.html">*</a></h1>
-          </button>
-          <h1 class="name name-light">AMANDA<br>CLEMENT</h1>
+        <div class="logo">
+          <button><a href="projects.html">*</a></button>
+          <h1>amanda<br>clement</h1>
+        </div>
 
-          <!-- MENU -->
-          <div class="menu menu-light">
-          <button>
-            <h1>-<br>-</h1>
-          </button>
-          <nav class="nav-light">
-            <a href="projects.html">PROJECTS</a><br>
-            <a href="about.html">ABOUT</a><br>
-            <a href="resume.html">RESUME</a>
+        <!-- MENU -->
+        <div class="menu">
+          <button><p>&#9868;</p></button>
+          <nav class="nav">
+            <a href="projects.html">projects</a><br>
+            <a href="about.html">about</a><br>
+            <a href="resume.html">resume</a>
           </nav>
         </div>
       </header>
@@ -42,8 +34,8 @@
 
         <!-- CONTACT -->
         <div class="row">
-          <div class="cell-left"><h4>contact</h4></div>
-          <div class="cell-right">
+          <h4>contact</h4>
+          <div>
             514 862 4797<br>
             <a href="mailto: amanda_clement@outlook.com" class="remove-underline">amanda_clement@outlook.com</a><br>
             <a href="https://www.linkedin.com/in/amanda-clement/" target="_blank">linkedin.com/in/amanda-clement</a><br>
@@ -52,8 +44,8 @@
 
         <!-- EDUCATION -->
         <div class="row">
-          <div class="cell-left"><h4>education</h4></div>
-          <div class="cell-right">
+          <h4>education</h4>
+          <div>
             <span class="cv-bold">Bachelor of Computer Science</span><br>
             Joint Major in Computer Science & Computation Arts<br>
             Concordia University    2019 - 2023<br>
@@ -68,8 +60,8 @@
 
         <!-- WORK EXPERIENCE -->
         <div class="row">
-          <div class="cell-left"><h4>work<br>experience</h4></div>
-          <div class="cell-right">
+          <h4>work<br>experience</h4>
+          <div>
             <span class="cv-bold">Software Developer, C#</span><br>
             LabLabLab    2023<br>
             <ul>
@@ -104,8 +96,8 @@
 
         <!-- TOOLS -->
         <div class="row">
-          <div class="cell-left"><h4>tools & technologies</h4></div>
-          <div class="cell-right">
+          <h4>tools & technologies</h4>
+          <div>
             Java &nbsp;*&nbsp;
             C# &nbsp;*&nbsp;
             C++ &nbsp;*&nbsp;
@@ -130,25 +122,22 @@
 
         <!-- LANGUAGES -->
         <div class="row">
-          <div class="cell-left"><h4>languages</h4></div>
-          <div class="cell-right">
+          <h4>languages</h4>
+          <div>
             English &nbsp;*&nbsp; French
           </div>
         </div>
 
         <!-- RESUME PDF -->
         <div class="row">
-          <div class="cell-left"><h4>PDF</h4></div>
-          <div class="cell-right">
+          <h4>PDF</h4>
+          <div>
             <a href="assets/AmandaClement_Resume.pdf" download target="_blank">AmandaClement_Resume</a><br>
           </div>
         </div>
-
+        </div>
       </div>
     </div>
-
-  </div>
-    <script src="js/script.js"></script>
   </body>
 
 </html>
