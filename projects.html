@@ -8,9 +8,8 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
     <title>Amanda Clement: Projects</title>
-
-    <!-- jQuery CDN -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="js/script.js" defer></script>
   </head>
 
   <body>
@@ -47,49 +46,15 @@
         </div>
       </div>
 
-      <!-- PROJECT DESCRIPTION -->
-      <div class="project-desc">
-        <div id="project-content">
-          <video id="project-desc-video" width="54%" playsinline loop muted autoplay>
-            <source src="" type="video/mp4">
-          </video>
-          <div class="arrow">&#8595;</div>
-
-          <div id="project-info">
-            <div class="row">
-              <div class="cell-left"><h4>title</h4></div>
-              <div class="cell-right" id="project-desc-title"><p></p></div>
-            </div>
-    
-            <div class="row">
-              <div class="cell-left"><h4>type</h4></div>
-              <div class="cell-right" id="project-desc-type"><p></p></div>
-            </div>
-    
-            <div class="row">
-              <div class="cell-left"><h4>description</h4></div>
-              <div class="cell-right" id="project-desc-description"><p></p></div>
-            </div>
-    
-            <div class="row">
-              <div class="cell-left"><h4>technologies</h4></div>
-              <div class="cell-right" id="project-desc-technologies"><p></p></div>
-            </div>
-    
-            <div class="row">
-              <div class="cell-left"><h4>year</h4></div>
-              <div class="cell-right" id="project-desc-year"><p></p></div>
-            </div>
-    
-            <div class="row links">
-              <div class="cell-left"><h4 id="project-desc-link-type"></h4></div>
-              <div class="cell-right" id="project-desc-link"><a href="" target="_blank"></a></div>
-            </div>
-        </div>
+      <!-- PROJECT CONTENT -->
+      <div id="project-content">
+        <video class="project-content-video" width="54%" autoplay playsinline loop muted>
+          <source src="" type="video/mp4">
+        </video>
+        <div class="arrow">&#8595;</div>
+        <div id="project-info"></div>
       </div>
-
     </div>
-    <script src="js/script.js"></script>
   </body>
 
 </html>

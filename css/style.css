@@ -244,11 +244,6 @@ h1 {
   pointer-events: none;
 }
 
-.project-desc {
-  display: none;
-  background-color: var(--mid-color);
-}
-
 #container-about {
   width: 100%;
   background-color: var(--mid-color);
@@ -362,6 +357,8 @@ h1 {
 }
 
 #project-content {
+  display: none;
+  background-color: var(--mid-color);
   color: var(--accent-color);
   padding: 50px 120px 120px 120px;
   text-align: center;

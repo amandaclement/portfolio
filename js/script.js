@@ -10,8 +10,7 @@ $(document).ready(function() {
   const line2 = 'CLEMENT';
   const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&()+=<>?/:;{}[]~|';
   const introScreen = $('#intro-overlay');
-  const introDelay = 4000;
-  const maxShuffles = 3;
+  const introDelay = 4000, maxShuffles = 3;
   let shuffles = 0;
 
   // Buttons
@@ -29,168 +28,116 @@ $(document).ready(function() {
   const menuButtonLight = $('.menu-light button');
   let navFlag = false;
 
-  // Index page
-  const numProjects = 10;
-  let projectContainer = $('.project-container');
-  let template = $('.project-template');
-
-  // Project descriptions
-  let projectDesc = $('.project-desc');
-  let projectDescVideo = $('#project-desc-video');
-  let projectDescTitle = $('#project-desc-title');
-  let projectDescType = $('#project-desc-type');
-  let projectDescDescription = $('#project-desc-description');
-  let projectDescTechnologies = $('#project-desc-technologies');
-  let projectDescYear = $('#project-desc-year');
-  let projectDescLinkType = $('#project-desc-link-type');
-  let projectDescLink = $('#project-desc-link a');
-
-  const videoPaths = [
-    'assets/videos/raytracer.mp4',
-    'assets/videos/heterogeneousfog.mp4',
-    'assets/videos/covid19emotionmap.mp4',
-    'assets/videos/tracesofyou.mp4',
-    'assets/videos/bodycontroller.mp4',
-    'assets/videos/flymetothemoon.mp4',
-    'assets/videos/escape.mp4',
-    'assets/videos/drawingwithsound.mp4',
-    'assets/videos/whenthesun.mp4',
-    'assets/videos/musicalshapes.mp4'
-  ];
-
-  const titles = [
-    'Raytracer',
-    'Heterogeneous Fog',
-    'COVID-19 Emotion Map',
-    'Traces of You',
-    'Body Controller',
-    'Fly Me to the Moon',
-    'Escape',
-    'Drawing With Sound',
-    'When the Sun Goes Down',
-    'Musical Shapes'
-  ];
-
-  const types = [
-    'Computer Graphics',
-    'Computer Graphics',
-    'Data Visualization / Web Design',
-    'Game Design / Game Development',
-    'Research-Creation / Game Design / Game Development',
-    'Game Design / Game Development',
-    'Game Design / Game Development',
-    'Generative Art / Creative Coding / Web Design',
-    'Game Design',
-    'Creative Coding / Web Design'
-  ];
-
-  const descriptions = [
-    'A raytracer built from scratch using C++. It supports sphere and rectangle primitives, local illumination (point and area lights) using Blinn-Phong shading, and anti-aliasing using stratified random subpixel sampling. Integration of global illumination via path-tracing still in progress.',
-    'A real-time rendering of heterogeneous fog in OpenGL. The objective was to strike a balance between the uniformity of homogeneous fog, which often lacks realism, and the computational demands of volumetric fog, known for its realistic appearance.<br><br>The heterogeneous fog model augments exponential fog by integrating Perlin turbulence (the layering of Perlin noise octaves) into the equation to achieve a greater amount of shape and detail.',
-    'An interactive web-based data visualization illustrating the emotional impact of the COVID-19 pandemic. Each dot represents a Tweet posted on March 11th, 2020, the day the WHO declared the COVID-19 outbreak a global pandemic, coloured by emotion.<br><br>The visualization invites users to witness the emotions embedded within global discourse, painting a picture of collective sentiment in the face of adversity.',
-    'A short narrative game about love, loss and the enduring power of reminiscence. Players are invited to explore the home of a lost loved one, toggling between past and present, uncovering the heartache and beauty that linger within the walls of memory.',
-    'Guided by the question "how can a system be designed to engage the lived body during play?" this research-creation project explores embodied interaction within digital games. The system, comprising a body controller and a computer-based game, challenges our sense of balance — an aspect often overlooked in virtual gameplay experiences.<br><br>Ultimately, this project examines the potential of unconventional interfaces between humans and digital games to promote situated and enacted forms of cognition through heightened bodily awareness.',
-    'A short, lighthearted game where players help their astronaut friend rebuild their spaceship after crashing in an unfamiliar area. They must navigate a vibrant landscape to collect the scattered spaceship parts.',
-    'A short game set in an eerie abandoned campsite. Players must navigate the darkness and escape before their flashlight battery drains.',
-    'An interactive web-based experience that visualizes sound through patterns. Changes in specific audio characteristics picked up by the user\'s microphone are translated into visual elements that combine to create a symphony of shapes and colors.',
-    'A narrative pixel-art game about restless self-searching and solitude. It portrays a journey of wandering through empty yet evocative spaces in the night, where one yearns for comfort and closeness amidst the darkness.',
-    'An interactive web-based experience centred on visual stimulation. In this dynamic exploration of shape and sound, the characteristics of each scene change in response to mouse interactions.'
-  ];
-
-  const technologies = [
-    'C++',
-    'C++ / OpenGL',
-    'JavaScript / Node.js / Express.js / MongoDB / p5.js / HTML / CSS',
-    'C# / Unity',
-    'C# / C++ / Arduino / Unity',
-    'C# / Unity',
-    'C# / Unity',
-    'JavaScript / Node.js / Express.js / MongoDB / p5.js / HTML / CSS',
-    'Bitsy (HTML5)',
-    'JavaScript / p5.js / HTML / CSS'
-  ];
-
-  const years = [
-    '2023',
-    '2023',
-    '2022',
-    '2022',
-    '2021',
-    '2021',
-    '2021',
-    '2020',
-    '2019',
-    '2019'
-  ];
-
-  const links = [
-    {
-      type: 'source code',
-      url: 'https://github.com/amandaclement/raytracer',
-      name: 'GitHub'
+  // Project data
+  const projectData = [
+    { 
+      title: 'Raytracer', 
+      type: 'Computer Graphics', 
+      technologies: 'C++', 
+      year: 2023, 
+      description: 'A raytracer built from scratch using C++. It supports sphere and rectangle primitives, local illumination (point and area lights) using Blinn-Phong shading, anti-aliasing using stratified random subpixel sampling, and global illumination using Monte Carlo path-tracing.', 
+      link: {type: 'source code', url: 'https://github.com/amandaclement/raytracer', name: 'GitHub'}, 
+      videoPath: 'assets/videos/raytracer.mp4' 
     },
-    {
-      type: 'source code',
-      url: 'https://github.com/amandaclement/heterogeneous_fog',
-      name: 'GitHub'
+    { 
+      title: 'Heterogeneous Fog', 
+      type: 'Computer Graphics', 
+      technologies: 'C++ / OpenGL',
+      year: 2023, 
+      description: 'A real-time rendering of heterogeneous fog in OpenGL. The objective was to strike a balance between the uniformity of homogeneous fog, which often lacks realism, and the computational demands of volumetric fog, known for its realistic appearance.<br><br>The heterogeneous fog model augments exponential fog by integrating Perlin turbulence (the layering of Perlin noise octaves) into the equation to achieve a greater amount of shape and detail.', 
+      link: {type: 'source code', url: 'https://github.com/amandaclement/heterogeneous_fog', name: 'GitHub'},
+      videoPath: 'assets/videos/heterogeneousfog.mp4' 
     },
-    {
-      type: 'source code',
-      url: 'https://github.com/amandaclement/cart451/tree/master/prototype',
-      name: 'GitHub'
+    { 
+      title: 'COVID-19 Emotion Map', 
+      type: 'Web Development / Web Design / Data Visualization / Natural Language Processing', 
+      technologies: 'JavaScript / Node.js / Express.js / p5.js / MongoDB / HTML / CSS', 
+      year: 2022, 
+      description: 'An interactive web-based data visualization illustrating the emotional impact of the COVID-19 pandemic. Each dot represents a Tweet posted on March 11th, 2020, the day the WHO declared the COVID-19 outbreak a global pandemic, coloured by emotion.<br><br>The visualization invites users to witness the emotions embedded within global discourse, painting a picture of collective sentiment in the face of adversity.', 
+      link: {type: 'source code', url: 'https://github.com/amandaclement/cart451/tree/master/prototype', name: 'GitHub'},
+      videoPath: 'assets/videos/covid19emotionmap.mp4' 
     },
-    {
-      type: 'video demo',
-      url: 'https://www.youtube.com/watch?v=nL7VJ2ocClI',
-      name: 'YouTube'
+    { 
+      title: 'Traces of You', 
+      type: 'Game Development / Game Design', 
+      technologies: 'C# / Unity / Blender / Mixamo', 
+      year: 2022, 
+      description: 'A short narrative game about love, loss and the enduring power of reminiscence. Players are invited to explore the home of a lost loved one, toggling between past and present, uncovering the heartache and beauty that linger within the walls of memory.', 
+      link: {type: 'video demo', url: 'https://www.youtube.com/watch?v=nL7VJ2ocClI', name: 'YouTube'},
+      videoPath: 'assets/videos/tracesofyou.mp4' },
+    { 
+      title: 'Body Controller', 
+      type: 'Game Development / Game Design / Research-Creation', 
+      technologies: 'C# / C++ / Arduino / Unity', 
+      year: 2021, 
+      description: 'Guided by the question "how can a system be designed to engage the lived body during play?" this research-creation project explores embodied interaction within digital games. The system, comprising a body controller and a computer-based game, challenges our sense of balance — an aspect often overlooked in virtual gameplay experiences.<br><br>Ultimately, this project examines the potential of unconventional interfaces between humans and digital games to promote situated and enacted forms of cognition through heightened bodily awareness.', 
+      link: {type: 'video demo', url: 'https://youtu.be/tfeZZ38HUl0', name: 'YouTube'},
+      videoPath: 'assets/videos/bodycontroller.mp4' 
     },
-    {
-      type: 'video demo',
-      url: 'https://youtu.be/tfeZZ38HUl0',
-      name: 'YouTube'
+    { 
+      title: 'Fly Me to the Moon', 
+      type: 'Game Development / Game Design', 
+      technologies: 'C# / Unity / Blender', 
+      year: 2021, 
+      description: 'A short, lighthearted game where players help their astronaut friend rebuild their spaceship after crashing in an unfamiliar area. They must navigate a vibrant landscape to collect the scattered spaceship parts.', 
+      link: {type: 'game link', url: 'https://amandaclement.itch.io/fly-me-to-the-moon', name: 'itch.io'},
+      videoPath: 'assets/videos/flymetothemoon.mp4' },
+    { 
+      title: 'Escape', 
+      type: 'Game Development / Game Design', 
+      technologies: 'C# / Unity', 
+      year: 2021, 
+      description: 'A short game set in an eerie abandoned campsite. Players must navigate the darkness and escape before their flashlight battery drains.', 
+      link: {type: 'game link', url: 'https://amandaclement.itch.io/escape', name: 'itch.io'},
+      videoPath: 'assets/videos/escape.mp4' 
     },
-    {
-      type: 'game link',
-      url: 'https://amandaclement.itch.io/fly-me-to-the-moon',
-      name: 'itch.io'
+    { 
+      title: 'Drawing With Sound', 
+      type: 'Web Development / Web Design / Generative Art', 
+      technologies: 'JavaScript / PHP / p5.js / HTML / CSS', 
+      year: 2020, 
+      description: 'An interactive web-based experience that illustrates sound using visual patterns. Changes in specific audio characteristics picked up by the user\'s microphone are translated into visual elements that combine to create a symphony of shapes and colors.', 
+      link: {type: 'source code', url: 'https://github.com/amandaclement/drawingWithSound', name: 'GitHub'},
+      videoPath: 'assets/videos/drawingwithsound.mp4' 
     },
-    {
-      type: 'game link',
-      url: 'https://amandaclement.itch.io/escape',
-      name: 'itch.io'
-    },
-    {
-      type: 'source code',
-      url: 'https://github.com/amandaclement/drawingWithSound',
-      name: 'GitHub'
-    },
-    {
-      type: 'game link',
-      url: 'https://amandaclement.itch.io/when-the-sun-goes-down',
-      name: 'itch.io'
-    },
-    {
-      type: 'project website',
-      url: 'https://amandaclement.github.io/cart253/projects/project3/index.html',
-      name: 'Link'
+    { 
+      title: 'When the Sun Goes Down', 
+      type: 'Game Design', 
+      technologies: 'Bitsy (HTML5)', 
+      year: 2019, 
+      description: 'A narrative pixel-art game about restless self-searching and solitude. It portrays a journey of wandering through empty yet evocative spaces in the night, where one yearns for comfort and closeness amidst the darkness.', 
+      link: {type: 'game link', url: 'https://amandaclement.itch.io/when-the-sun-goes-down', name: 'itch.io'},
+      videoPath: 'assets/videos/whenthesun.mp4' },
+    { 
+      title: 'Musical Shapes', 
+      type: 'Web Design / Creative Coding', 
+      technologies: 'JavaScript / p5.js / HTML / CSS', 
+      year: 2019, 
+      description: 'An interactive web-based experience centred on visual stimulation. In this dynamic exploration of shape and sound, the characteristics of each scene change in response to mouse interactions.', 
+      link: {type: 'project website', url: 'https://amandaclement.github.io/cart253/projects/project3/index.html', name: 'Link'},
+      videoPath: 'assets/videos/musicalshapes.mp4' 
     }
   ];
 
+  // Index page
+  const numProjects = projectData.length;
+  const projectContainer = $('.project-container');
+  const template = $('.project-template');
+  const projectContent = $('#project-content');
+  const projectContentVideo = $('.project-content-video');
+  const projectInfo = $('#project-info');
+
   // Bio title on about page
-  let bioContainer = $('#bio-container');
-  let bioTitles = [
+  const bioContainer = $('#bio-container');
+  const bioTitles = [
     'front-end developer', 
     'back-end developer', 
     'web developer', 'game developer', 
     'creative technologist', 
     'designer too'
   ];
-
-  const typingSpeed = 100;
-  const erasingSpeed = 30;
-  const titleDelay = 1000;
-  let titleIndex = 0;
-  let charIndex = 0;
+  const typingSpeed = 100, erasingSpeed = 30, titleDelay = 1000;
+  let titleIndex = 0, charIndex = 0;
 
 
   /************************************************** FUNCTIONS **************************************************/
@@ -385,20 +332,42 @@ $(document).ready(function() {
     }
   }
 
-  // Display and update project description
+  // Update and display project description
   function displayProjectDescription(index) {
+    // Hide project list and display project description container
     projectContainer.css('display', 'none');
-    projectDesc.css('display', 'block');
+    projectContent.css('display', 'block');
 
-    projectDescVideo.attr('src', videoPaths[index]);
-    projectDescTitle.append(titles[index]);
-    projectDescType.append(types[index]);
-    projectDescDescription.append(descriptions[index]);
-    projectDescTechnologies.append(technologies[index]);
-    projectDescYear.append(years[index]);
-    projectDescLinkType.append(links[index].type);
-    projectDescLink.attr('href', links[index].url);
-    projectDescLink.append(links[index].name);
+    // Get project info based on index
+    const data = projectData[index];
+
+    // Update video
+    projectContentVideo.attr('src', data.videoPath);
+
+    // Loop over each key/value pair in selected project data, creating corresponding elements
+    $.each(data, function(key, value) {
+      const rowElement = $('<div>').addClass('row');
+      const leftCell = $('<div>').addClass('cell-left');
+      const rightCell = $('<div>').addClass('cell-right');
+      let leftContent, rightContent;
+
+      if (key === 'link') {
+        leftContent = $('<h4>').text(value.type);
+        rightContent = $('<a>')
+          .attr('href', value.url)
+          .attr('target', '_blank')
+          .text(value.name);
+      } else if (key !== 'videoPath') {
+        leftContent = $('<h4>').text(key);
+        rightContent = $('<p>').html(value);
+      }
+      
+      // Append the content to the appropriate elements
+      leftCell.append(leftContent);
+      rightCell.append(rightContent);
+      rowElement.append(leftCell, rightCell);
+      projectInfo.append(rowElement);
+    });
   }
 
   // Create a new project
@@ -406,10 +375,10 @@ $(document).ready(function() {
     // Clone the template and populate its content
     let project = template.clone();
     project.removeClass('project-template').addClass('project-cell');
-    project.find('.project-title').text(titles[index]);
+    project.find('.project-title').text(projectData[index].title);
 
     let video =  project.find('.project-video');
-    video.attr('src', videoPaths[index]);
+    video.attr('src', projectData[index].videoPath);
 
     // Display appropriate description on project click
     video.click(function() {
@@ -510,5 +479,4 @@ $(document).ready(function() {
 
   // Type/erase bio titles on about page
   typeBioTitle();
-
 });
