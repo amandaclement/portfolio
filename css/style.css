@@ -5,10 +5,11 @@
   margin: 0;
   --main-font-family: 'Karla', sans-serif;
   --symbol-font-family: 'Roboto Mono', monospace;
-  --base-color: #030303;    /* Off black */
-  --mid-color: #1C1C1C;     /* Dark grey */
-  --accent-color: #FFFFFF;  /* White */
-  --comment-color: #6B9955; /* Green */
+  --base-color: #030303;       /* Off black */
+  --mid-color: #1C1C1C;        /* Dark grey */
+  --accent-color: #FFFFFF;     /* White */
+  --subheading-color: #696969; /* Grey */
+  --comment-color: #6B9955;    /* Green */
 }
 
 body {
@@ -267,7 +268,7 @@ button:hover {
 #about-content p, 
 #cv-content p {
   font-size: 1rem;
-  font-weight: 200;
+  font-weight: 300;
   margin-bottom: 5rem;
 }
 
@@ -315,15 +316,29 @@ button:hover {
 
 #container-cv ul {
   list-style-type: "*";
-  margin-left: 1.2rem;
+  padding-left: 1rem;
+  font-family: var(--symbol-font-family);
+  font-size: 1rem;
 }
 
-#container-cv ul li {
-  margin-top: 0.3rem;
+.bullet-list {
+  width: calc(100% - 2rem);
+}
+
+.bullet-list li {
+  margin-top: 0.4rem;
+  line-height: 1.3rem;
+}
+
+.bullet-list li span {
+  position: relative;
+  top: -0.2rem;
+  left: 1rem;
+  font-size: 1rem;
+  font-family: var(--main-font-family) !important;
 }
 
 .cv-bullet-content {
-  font-style: italic;
   position: relative;
   left: 1rem;
 }
@@ -386,6 +401,16 @@ button:hover {
 
 .remove-underline {
   text-decoration: none;
+}
+
+.subheading, .subheading-tools {
+  color: var(--subheading-color);
+  font-size: 0.9rem;
+}
+
+.subheading {
+  text-transform: uppercase;
+  letter-spacing: 0.03rem;
 }
 
 /* ARROW BREAKPOINT */

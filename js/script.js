@@ -6,9 +6,9 @@ $(document).ready(function() {
   const body = $('body');
   const textContainer1 = $('#intro-line1');
   const textContainer2 = $('#intro-line2');
-  const line1 = 'AMANDA';
-  const line2 = 'CLEMENT';
-  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&()+=<>?/:;{}[]~|';
+  const line1 = 'amanda';
+  const line2 = 'clement';
+  const chars = 'abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&()+=<>?/:;{}[]~|';
   const introScreen = $('#intro-overlay');
   const introDelay = 4000, maxShuffles = 3;
   let shuffles = 0;
@@ -35,7 +35,7 @@ $(document).ready(function() {
     { 
       title: 'Heterogeneous Fog', 
       type: 'Computer Graphics', 
-      technologies: 'C++ / OpenGL',
+      technologies: 'C++ &ensp;/&ensp; OpenGL',
       year: 2023, 
       description: 'A real-time rendering of heterogeneous fog in OpenGL. The objective was to strike a balance between the uniformity of homogeneous fog, which often lacks realism, and the computational demands of volumetric fog, known for its realistic appearance.<br><br>The heterogeneous fog model augments exponential fog by integrating Perlin turbulence (the layering of Perlin noise octaves) into the equation to achieve a greater amount of shape and detail.', 
       link: {type: 'source code', url: 'https://github.com/amandaclement/heterogeneous_fog', name: 'GitHub'},
@@ -43,8 +43,8 @@ $(document).ready(function() {
     },
     { 
       title: 'COVID-19 Emotion Map', 
-      type: 'Web Development / Web Design / Data Visualization / Natural Language Processing', 
-      technologies: 'JavaScript / Node.js / Express.js / p5.js / MongoDB / HTML / CSS', 
+      type: 'Web Development &ensp;/&ensp; Web Design &ensp;/&ensp; Data Visualization &ensp;/&ensp; Natural Language Processing', 
+      technologies: 'JavaScript &ensp;/&ensp; Node.js &ensp;/&ensp; Express.js &ensp;/&ensp; p5.js &ensp;/&ensp; HTML &ensp;/&ensp; CSS &ensp;/&ensp; MongoDB &ensp;/&ensp; Twitter API', 
       year: 2022, 
       description: 'An interactive web-based data visualization illustrating the emotional impact of the COVID-19 pandemic. Each dot represents a Tweet posted on March 11th, 2020, the day the WHO declared the COVID-19 outbreak a global pandemic, coloured by emotion.<br><br>The visualization invites users to witness the emotions embedded within global discourse, painting a picture of collective sentiment in the face of adversity.', 
       link: {type: 'source code', url: 'https://github.com/amandaclement/cart451/tree/master/prototype', name: 'GitHub'},
@@ -52,16 +52,16 @@ $(document).ready(function() {
     },
     { 
       title: 'Traces of You', 
-      type: 'Game Development / Game Design', 
-      technologies: 'C# / Unity / Blender / Mixamo', 
+      type: 'Game Development &ensp;/&ensp; Game Design', 
+      technologies: 'C# &ensp;/&ensp; Unity &ensp;/&ensp; Blender &ensp;/&ensp; Mixamo', 
       year: 2022, 
       description: 'A short narrative game about love, loss and the enduring power of reminiscence. Players are invited to explore the home of a lost loved one, toggling between past and present, uncovering the heartache and beauty that linger within the walls of memory.', 
       link: {type: 'video demo', url: 'https://www.youtube.com/watch?v=nL7VJ2ocClI', name: 'YouTube'},
       videoPath: 'assets/videos/tracesofyou.mp4' },
     { 
       title: 'Body Controller', 
-      type: 'Game Development / Game Design / Research-Creation', 
-      technologies: 'C# / C++ / Arduino / Unity', 
+      type: 'Game Development &ensp;/&ensp; Game Design &ensp;/&ensp; Research-Creation', 
+      technologies: 'C# &ensp;/&ensp; C++ &ensp;/&ensp; Arduino &ensp;/&ensp; Unity', 
       year: 2021, 
       description: 'Guided by the question "how can a system be designed to engage the lived body during play?" this research-creation project explores embodied interaction within digital games. The system, comprising a body controller and a computer-based game, challenges our sense of balance — an aspect often overlooked in virtual gameplay experiences.<br><br>Ultimately, this project examines the potential of unconventional interfaces between humans and digital games to promote situated and enacted forms of cognition through heightened bodily awareness.', 
       link: {type: 'video demo', url: 'https://youtu.be/tfeZZ38HUl0', name: 'YouTube'},
@@ -69,16 +69,16 @@ $(document).ready(function() {
     },
     { 
       title: 'Fly Me to the Moon', 
-      type: 'Game Development / Game Design', 
-      technologies: 'C# / Unity / Blender', 
+      type: 'Game Development &ensp;/&ensp; Game Design', 
+      technologies: 'C# &ensp;/&ensp; Unity &ensp;/&ensp; Blender', 
       year: 2021, 
       description: 'A short, lighthearted game where players help their astronaut friend rebuild their spaceship after crashing in an unfamiliar area. They must navigate a vibrant landscape to collect the scattered spaceship parts.', 
       link: {type: 'game link', url: 'https://amandaclement.itch.io/fly-me-to-the-moon', name: 'itch.io'},
       videoPath: 'assets/videos/flymetothemoon.mp4' },
     { 
       title: 'Escape', 
-      type: 'Game Development / Game Design', 
-      technologies: 'C# / Unity', 
+      type: 'Game Development &ensp;/&ensp; Game Design', 
+      technologies: 'C# &ensp;/&ensp; Unity', 
       year: 2021, 
       description: 'A short game set in an eerie abandoned campsite. Players must navigate the darkness and escape before their flashlight battery drains.', 
       link: {type: 'game link', url: 'https://amandaclement.itch.io/escape', name: 'itch.io'},
@@ -86,8 +86,8 @@ $(document).ready(function() {
     },
     { 
       title: 'Drawing With Sound', 
-      type: 'Web Development / Web Design / Generative Art', 
-      technologies: 'JavaScript / PHP / p5.js / HTML / CSS', 
+      type: 'Web Development &ensp;/&ensp; Web Design &ensp;/&ensp; Generative Art', 
+      technologies: 'JavaScript &ensp;/&ensp; PHP &ensp;/&ensp; p5.js &ensp;/&ensp; HTML &ensp;/&ensp; CSS', 
       year: 2020, 
       description: 'An interactive web-based experience that illustrates sound using visual patterns. Changes in specific audio characteristics picked up by the user\'s microphone are translated into visual elements that combine to create a symphony of shapes and colors.', 
       link: {type: 'source code', url: 'https://github.com/amandaclement/drawingWithSound', name: 'GitHub'},
@@ -103,8 +103,8 @@ $(document).ready(function() {
       videoPath: 'assets/videos/whenthesun.mp4' },
     { 
       title: 'Musical Shapes', 
-      type: 'Web Design / Creative Coding', 
-      technologies: 'JavaScript / p5.js / HTML / CSS', 
+      type: 'Web Design &ensp;/&ensp; Creative Coding', 
+      technologies: 'JavaScript &ensp;/&ensp; p5.js &ensp;/&ensp; HTML &ensp;/&ensp; CSS', 
       year: 2019, 
       description: 'An interactive web-based experience centred on visual stimulation. In this dynamic exploration of shape and sound, the characteristics of each scene change in response to mouse interactions.', 
       link: {type: 'project website', url: 'https://amandaclement.github.io/cart253/projects/project3/index.html', name: 'Link'},
