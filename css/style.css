@@ -332,7 +332,7 @@ button:hover {
 
 .bullet-list li span {
   position: relative;
-  top: -0.2rem;
+  top: -0.13rem;
   left: 1rem;
   font-size: 1rem;
   font-family: var(--main-font-family) !important;
