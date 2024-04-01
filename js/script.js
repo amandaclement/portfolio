@@ -29,7 +29,9 @@ $(document).ready(function() {
       technologies: 'C++', 
       year: 2023, 
       description: 'A raytracer built from scratch using C++. It supports sphere and rectangle primitives, local illumination (point and area lights) using Blinn-Phong shading, anti-aliasing using stratified random subpixel sampling, and global illumination using Monte Carlo path-tracing.', 
-      link: {type: 'source code', url: 'https://github.com/amandaclement/raytracer', name: 'GitHub'}, 
+      links: [
+        {type: 'source code', url: 'https://github.com/amandaclement/raytracer', name: 'GitHub'}
+      ], 
       videoPath: 'assets/videos/raytracer.mp4' 
     },
     { 
@@ -38,7 +40,10 @@ $(document).ready(function() {
       technologies: 'C++ &ensp;/&ensp; OpenGL',
       year: 2023, 
       description: 'A real-time rendering of heterogeneous fog in OpenGL. The objective was to strike a balance between the uniformity of homogeneous fog, which often lacks realism, and the computational demands of volumetric fog, known for its realistic appearance.<br><br>The heterogeneous fog model augments exponential fog by integrating Perlin turbulence (the layering of Perlin noise octaves) into the equation to achieve a greater amount of shape and detail.', 
-      link: {type: 'source code', url: 'https://github.com/amandaclement/heterogeneous_fog', name: 'GitHub'},
+      links: [
+        {type: 'video demo', url: 'https://youtu.be/fq2PMKXnA8Q', name: 'YouTube'},
+        {type: 'source code', url: 'https://github.com/amandaclement/heterogeneous_fog', name: 'GitHub'}
+      ],
       videoPath: 'assets/videos/heterogeneousfog.mp4' 
     },
     { 
@@ -47,7 +52,10 @@ $(document).ready(function() {
       technologies: 'JavaScript &ensp;/&ensp; Node.js &ensp;/&ensp; Express.js &ensp;/&ensp; p5.js &ensp;/&ensp; HTML &ensp;/&ensp; CSS &ensp;/&ensp; MongoDB &ensp;/&ensp; Twitter API', 
       year: 2022, 
       description: 'An interactive web-based data visualization illustrating the emotional impact of the COVID-19 pandemic. Each dot represents a Tweet posted on March 11th, 2020, the day the WHO declared the COVID-19 outbreak a global pandemic, coloured by emotion.<br><br>The visualization invites users to witness the emotions embedded within global discourse, painting a picture of collective sentiment in the face of adversity.', 
-      link: {type: 'source code', url: 'https://github.com/amandaclement/cart451/tree/master/prototype', name: 'GitHub'},
+      links: [
+        {type: 'video demo', url: 'https://youtu.be/_VWklTNBtbU', name: 'YouTube'},
+        {type: 'source code', url: 'https://github.com/amandaclement/cart451/tree/master/prototype', name: 'GitHub'}
+      ],
       videoPath: 'assets/videos/covid19emotionmap.mp4' 
     },
     { 
@@ -56,15 +64,20 @@ $(document).ready(function() {
       technologies: 'C# &ensp;/&ensp; Unity &ensp;/&ensp; Blender &ensp;/&ensp; Mixamo', 
       year: 2022, 
       description: 'A short narrative game about love, loss and the enduring power of reminiscence. Players are invited to explore the home of a lost loved one, toggling between past and present, uncovering the heartache and beauty that linger within the walls of memory.', 
-      link: {type: 'video demo', url: 'https://www.youtube.com/watch?v=nL7VJ2ocClI', name: 'YouTube'},
-      videoPath: 'assets/videos/tracesofyou.mp4' },
+      links: [
+        {type: 'video demo', url: 'https://www.youtube.com/watch?v=nL7VJ2ocClI', name: 'YouTube'}
+      ],
+      videoPath: 'assets/videos/tracesofyou.mp4' 
+    },
     { 
       title: 'Body Controller', 
       type: 'Game Development &ensp;/&ensp; Game Design &ensp;/&ensp; Research-Creation', 
       technologies: 'C# &ensp;/&ensp; C++ &ensp;/&ensp; Arduino &ensp;/&ensp; Unity', 
       year: 2021, 
       description: 'Guided by the question "how can a system be designed to engage the lived body during play?" this research-creation project explores embodied interaction within digital games. The system, comprising a body controller and a computer-based game, challenges our sense of balance — an aspect often overlooked in virtual gameplay experiences.<br><br>Ultimately, this project examines the potential of unconventional interfaces between humans and digital games to promote situated and enacted forms of cognition through heightened bodily awareness.', 
-      link: {type: 'video demo', url: 'https://youtu.be/tfeZZ38HUl0', name: 'YouTube'},
+      links: [
+        {type: 'video demo', url: 'https://youtu.be/tfeZZ38HUl0', name: 'YouTube'}
+      ],
       videoPath: 'assets/videos/bodycontroller.mp4' 
     },
     { 
@@ -73,7 +86,9 @@ $(document).ready(function() {
       technologies: 'C# &ensp;/&ensp; Unity &ensp;/&ensp; Blender', 
       year: 2021, 
       description: 'A short, lighthearted game where players help their astronaut friend rebuild their spaceship after crashing in an unfamiliar area. They must navigate a vibrant landscape to collect the scattered spaceship parts.', 
-      link: {type: 'game link', url: 'https://amandaclement.itch.io/fly-me-to-the-moon', name: 'itch.io'},
+      links: [
+        {type: 'game link', url: 'https://amandaclement.itch.io/fly-me-to-the-moon', name: 'itch.io'}
+      ],
       videoPath: 'assets/videos/flymetothemoon.mp4' },
     { 
       title: 'Escape', 
@@ -81,7 +96,9 @@ $(document).ready(function() {
       technologies: 'C# &ensp;/&ensp; Unity', 
       year: 2021, 
       description: 'A short game set in an eerie abandoned campsite. Players must navigate the darkness and escape before their flashlight battery drains.', 
-      link: {type: 'game link', url: 'https://amandaclement.itch.io/escape', name: 'itch.io'},
+      links: [
+        {type: 'game link', url: 'https://amandaclement.itch.io/escape', name: 'itch.io'}
+      ],
       videoPath: 'assets/videos/escape.mp4' 
     },
     { 
@@ -90,7 +107,10 @@ $(document).ready(function() {
       technologies: 'JavaScript &ensp;/&ensp; PHP &ensp;/&ensp; p5.js &ensp;/&ensp; HTML &ensp;/&ensp; CSS', 
       year: 2020, 
       description: 'An interactive web-based experience that illustrates sound using visual patterns. Changes in specific audio characteristics picked up by the user\'s microphone are translated into visual elements that combine to create a symphony of shapes and colors.', 
-      link: {type: 'source code', url: 'https://github.com/amandaclement/drawingWithSound', name: 'GitHub'},
+      links: [
+        {type: 'video demo', url: 'https://youtu.be/B9YfdWzWuwI', name: 'YouTube'},
+        {type: 'source code', url: 'https://github.com/amandaclement/drawingWithSound', name: 'GitHub'}
+      ],
       videoPath: 'assets/videos/drawingwithsound.mp4' 
     },
     { 
@@ -99,7 +119,9 @@ $(document).ready(function() {
       technologies: 'Bitsy (HTML5)', 
       year: 2019, 
       description: 'A narrative pixel-art game about restless self-searching and solitude. It portrays a journey of wandering through empty yet evocative spaces in the night, where one yearns for comfort and closeness amidst the darkness.', 
-      link: {type: 'game link', url: 'https://amandaclement.itch.io/when-the-sun-goes-down', name: 'itch.io'},
+      links: [
+        {type: 'game link', url: 'https://amandaclement.itch.io/when-the-sun-goes-down', name: 'itch.io'}
+      ],
       videoPath: 'assets/videos/whenthesun.mp4' },
     { 
       title: 'Musical Shapes', 
@@ -107,7 +129,10 @@ $(document).ready(function() {
       technologies: 'JavaScript &ensp;/&ensp; p5.js &ensp;/&ensp; HTML &ensp;/&ensp; CSS', 
       year: 2019, 
       description: 'An interactive web-based experience centred on visual stimulation. In this dynamic exploration of shape and sound, the characteristics of each scene change in response to mouse interactions.', 
-      link: {type: 'project website', url: 'https://amandaclement.github.io/cart253/projects/project3/index.html', name: 'Link'},
+      links: [
+        {type: 'project website', url: 'https://amandaclement.github.io/cart253/projects/project3/index.html', name: 'Link'},
+        {type: 'source code', url: 'https://github.com/amandaclement/cart253/tree/master/projects/project3', name: 'GitHub'}
+      ],
       videoPath: 'assets/videos/musicalshapes.mp4' 
     }
   ];
@@ -297,6 +322,16 @@ $(document).ready(function() {
     }
   }
 
+  // Create a row consisting of a heading and content element
+  function createRow(headingText, contentElement) {
+    const rowElement = $('<div>').addClass('row');
+    const heading = $('<h4>').text(headingText);
+    const contentContainer = $('<div>');
+    contentContainer.append(contentElement);
+    rowElement.append(heading, contentContainer);
+    projectInfo.append(rowElement);
+  }
+
   // Update and display project description
   function displayProjectDescription(index) {
     // Hide project list and display project description container
@@ -309,27 +344,17 @@ $(document).ready(function() {
     // Update video
     projectContentVideo.attr('src', data.videoPath);
 
-    // Loop over each key/value pair in selected project data, creating corresponding elements
+    // Loop over each key/value pair in selected project data, creating corresponding rows
     $.each(data, function(key, value) {
-      const rowElement = $('<div>').addClass('row');
-      const contentContainer = $('<div>');
-      let heading, content;
-
-      if (key === 'link') {
-        heading = $('<h4>').text(value.type);
-        content = $('<a>')
-          .attr('href', value.url)
-          .attr('target', '_blank')
-          .text(value.name);
+      if (key === 'links') {
+        $.each(data.links, function(i, link) {
+          const content = $('<a>').attr('href', link.url).attr('target', '_blank').text(link.name);
+          createRow(link.type, content);
+        });
       } else if (key !== 'videoPath' && key !== 'images') {
-        heading = $('<h4>').text(key);
-        content = $('<p>').html(value);
+        const content = $('<p>').html(value);
+        createRow(key, content);
       }
-      
-      // Append the content to the appropriate elements
-      contentContainer.append(content);
-      rowElement.append(heading, contentContainer);
-      projectInfo.append(rowElement);
     });
   }
 
