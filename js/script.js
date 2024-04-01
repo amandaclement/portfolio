@@ -15,7 +15,7 @@ $(document).ready(function() {
 
   // Buttons
   const logo = $('.logo button');
-  const arrow = $('.arrow');
+  // const arrow = $('.arrow');
   const menuButton = $('.menu button');
   const menu = $('.menu');
   const nav = $('nav');
@@ -117,8 +117,15 @@ $(document).ready(function() {
   const projectContainer = $('.project-container');
   const template = $('.project-template');
   const projectContent = $('#project-content');
-  const projectContentVideo = $('.project-content-video');
+  const projectContentVideo = $('#carousel video');
   const projectInfo = $('#project-info');
+
+  // Carousel 
+  const carousel = $('#carousel');
+  let carouselElements, totalCarouselElements;
+  const carouselDelay = 500;
+  const carouselForwardButton = $('#carousel-forward-button');
+  const carouselBackButton = $('#carousel-back-button');
 
   // Bio title on about page
   const bioContainer = $('#bio-container');
@@ -232,7 +239,7 @@ $(document).ready(function() {
 
     rotateLogo(scrollTop);
 
-    handleArrows(scrollTop);
+    // handleArrows(scrollTop);
     animateProjects(scrollTop, windowHeight);
   }
 
@@ -314,7 +321,7 @@ $(document).ready(function() {
           .attr('href', value.url)
           .attr('target', '_blank')
           .text(value.name);
-      } else if (key !== 'videoPath') {
+      } else if (key !== 'videoPath' && key !== 'images') {
         heading = $('<h4>').text(key);
         content = $('<p>').html(value);
       }
@@ -336,10 +343,11 @@ $(document).ready(function() {
     let video =  project.find('.project-video');
     video.attr('src', projectData[index].videoPath);
 
-    // Display appropriate description on project click
+    // Display appropriate description and carousel on project click
     video.click(function() {
       window.scrollTo(0, 0);
       displayProjectDescription(index);
+      populateCarousel(index);
     });
 
     return project;
@@ -351,6 +359,41 @@ $(document).ready(function() {
       let project = createProject(i);
       projectContainer.append(project);
     }
+  }
+
+  // Populate project carousel with images
+  function populateCarousel(index) {
+    // Get project data
+    const project = projectData[index];
+
+    // Loop through the images array of the current project
+    $.each(project.images, function(index, image) {
+      // Create new figure, img and figcaption elements, assigning the appropriate data
+      let figure = $('<figure>').addClass('figure-img');
+      let img = $('<img>').attr('src', image.path).attr('alt', image.alt);
+      let figcaption = $('<figcaption>').text(image.caption);
+
+      // Append the the image and figcaption to the figure, and the figure to the carousel container
+      figure.append(img);
+      figure.append(figcaption);
+      carousel.append(figure);
+    });
+
+    // Update related variables
+    carouselElements = $('#carousel figure');
+    totalCarouselElements = carouselElements.length;
+  }
+
+  // Update project carousel by either moving forwards or backwards one element based on value of passed variable
+  function updateCarousel(forward) {
+    const currentIndex = carouselElements.filter('.current').index();
+    const nextIndex = (currentIndex + (forward ? 1 : -1) + totalCarouselElements) % totalCarouselElements;
+    carouselElements.eq(currentIndex).removeClass('reveal-from-top').addClass('hide-from-bottom');
+
+    setTimeout(function() {
+      carouselElements.eq(currentIndex).removeClass('current hide-from-bottom');
+      carouselElements.eq(nextIndex).addClass('current reveal-from-top');
+    }, carouselDelay);
   }
 
   // Type bio titles
@@ -432,6 +475,14 @@ $(document).ready(function() {
 
   // Animate project titles
   handleProjectTitles();
+
+  // Handle forward and backward button clicks on project description page
+  carouselForwardButton.on('click', function() {
+    updateCarousel(true);
+  });
+  carouselBackButton.on('click', function() {
+    updateCarousel(false);
+  });
 
   // Type/erase bio titles on about page
   typeBioTitle();

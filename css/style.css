@@ -3,6 +3,7 @@
 * {
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
   --main-font-family: 'Karla', sans-serif;
   --symbol-font-family: 'Roboto Mono', monospace;
   --base-color: #030303;       /* Off black */
@@ -12,7 +13,9 @@
   --comment-color: #6B9955;    /* Green */
 }
 
-body {
+html, body {
+  width: 100%;
+  height: 100%;
   font-family: var(--main-font-family);
 }
 
@@ -210,22 +213,27 @@ button:hover {
 }
 
 .project-animate  {
-  animation: projectBoxAnimation 0.8s forwards;
+  animation: reveal-from-top 0.8s forwards;
 }
 
 .project-video-animate  {
-  animation: projectVideoAnimation 0.8s forwards;
+  animation: reveal-from-bottom 0.8s forwards;
 }
 
-/* Slide reveal animations */
-@keyframes projectBoxAnimation {
+/* Slide reveal and hide animations */
+@keyframes reveal-from-top {
   from { clip-path: polygon(0 0, 100% 0, 100% 0, 0 0); opacity: 1; }
   to { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); opacity: 1; }
 }
 
-@keyframes projectVideoAnimation {
-  from { clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%); opacity: 1; }
+@keyframes reveal-from-bottom {
+  from { clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%); opacity: 1;  }
   to { clip-path: polygon(0 100%, 100% 100%, 100% 0, 0 0); opacity: 1; }
+}
+
+@keyframes hide-from-bottom {
+  from { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+  to { clip-path: polygon(0 0, 100% 0, 100% 0, 0 0); }
 }
 
 .arrow {
@@ -243,7 +251,15 @@ button:hover {
   font-weight: 500;
 }
 
+#container-index {
+  width: 100%;
+  height: 100%;
+  background-color: var(--mid-color);
+  color: var(--accent-color);
+}
+
 #container-about {
+  height: 100%;
   background-color: var(--mid-color);
   color: var(--accent-color);
 }
@@ -343,25 +359,98 @@ button:hover {
   left: 1rem;
 }
 
-#container-project {
-  background-color: var(--mid-color);
-}
-
-#container-project h2 {
-  color: var(--accent-color);
-}
-
 #project-content {
   display: none;
+  position: relative;
+  padding: 2rem 6rem;
+  text-align: center;
+  background-color: var(--mid-color);
+  margin: 0 auto;
+}
+
+#project-content #carousel,
+#project-content #carousel-buttons,
+#project-content #project-info {
+  width: 54%;
+  margin: 0 auto;
+}
+
+#carousel {
+  position: relative;
+}
+
+#carousel .figure-video, 
+#carousel .figure-img {
+  flex: 1;
+  opacity: 0;
+}
+
+#carousel .figure-video {
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+
+#carousel .figure-img {
+  position: absolute;
+  width: auto;
+  height: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#carousel figure video,
+#carousel figure img {
+  height: calc(100% - 2rem);
+}
+
+#carousel figure video {
+  width: 100%;
+}
+
+#carousel figcaption {
+  height: 2rem;
+  text-align: left;
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--subheading-color);
+}
+
+#carousel .current {
+  opacity: 1;
+}
+
+.reveal-from-top {
+  animation: reveal-from-top 0.5s forwards;
+}
+
+.hide-from-bottom {
+  animation: hide-from-bottom 0.5s forwards;
+}
+
+#carousel-buttons button { 
+  width: 1.8rem;
+  height: 1.8rem;
+  margin: 0 0.4rem;
+  margin-bottom: 3rem;
+  padding-bottom: 2.4px;
   background-color: var(--mid-color);
   color: var(--accent-color);
-  padding: 2rem 6rem 4rem 6rem;
-  text-align: center;
+  border: 1.5px solid var(--accent-color);
+  border-radius: 50%;
+  font-family: var(--symbol-font-family);
+  font-size: 1rem;
+}
+
+#carousel-buttons button:hover { 
+  transition: 0.2s;
+  background-color: var(--accent-color);
+  color: var(--mid-color);
 }
 
 #project-info {
   line-height: 1.5rem;
-  width: 54%;
   margin: 4rem auto;
 }
 
@@ -439,9 +528,14 @@ button:hover {
     margin-bottom: 0.8rem;
   }
 
-  #project-content video {
+  #project-content #carousel,
+  #project-content #carousel-buttons,
+  #project-content #project-info {
     width: 100%;
-    padding-top: 4rem;
+  }
+
+  #carousel figure {
+    max-width: 100%;
   }
 
   #project-content {
