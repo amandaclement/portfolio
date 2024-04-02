@@ -32,7 +32,11 @@ $(document).ready(function() {
       links: [
         {type: 'source code', url: 'https://github.com/amandaclement/raytracer', name: 'GitHub'}
       ], 
-      videoPath: 'assets/videos/raytracer.mp4' 
+      videoPath: 'assets/videos/raytracer.mp4',
+      images: [
+        {path: 'assets/images/raytracer_1.jpg', alt: 'Rendered scene of empty room showcasing global illumination', caption: 'Rendered scene showcasing global illumination'},
+        {path: 'assets/images/raytracer_2.jpg', alt: 'Rendered scene of empty room showcasing local illumination', caption: 'Rendered scene showcasing local illumination'}
+      ]
     },
     { 
       title: 'Heterogeneous Fog', 
@@ -44,7 +48,12 @@ $(document).ready(function() {
         {type: 'video demo', url: 'https://youtu.be/fq2PMKXnA8Q', name: 'YouTube'},
         {type: 'source code', url: 'https://github.com/amandaclement/heterogeneous_fog', name: 'GitHub'}
       ],
-      videoPath: 'assets/videos/heterogeneousfog.mp4' 
+      videoPath: 'assets/videos/heterogeneousfog.mp4' ,
+      images: [
+        {path: 'assets/images/heterogeneous_fog_1.jpg', alt: 'Heterogeneous fog on four cubes', caption: 'Real-time rendering of heterogeneous fog using 0 Perlin noise octaves'},
+        {path: 'assets/images/heterogeneous_fog_2.jpg', alt: 'Heterogeneous fog on four cubes', caption: 'Real-time rendering of heterogeneous fog using 4 Perlin noise octaves'},
+        {path: 'assets/images/heterogeneous_fog_3.jpg', alt: 'Perlin turbulence', caption: 'Perlin turbulence sample, used for the heterogeneous fog effect'}
+      ]
     },
     { 
       title: 'COVID-19 Emotion Map', 
@@ -56,7 +65,13 @@ $(document).ready(function() {
         {type: 'video demo', url: 'https://youtu.be/_VWklTNBtbU', name: 'YouTube'},
         {type: 'source code', url: 'https://github.com/amandaclement/cart451/tree/master/prototype', name: 'GitHub'}
       ],
-      videoPath: 'assets/videos/covid19emotionmap.mp4' 
+      videoPath: 'assets/videos/covid19emotionmap.mp4',
+      images: [
+        {path: 'assets/images/covid19_emotion_analysis_1.jpg', alt: 'Intro page prompting the user to choose sample size for visualization', caption: 'Intro page prompting the user to choose a sample size for the visualization'},
+        {path: 'assets/images/covid19_emotion_analysis_2.jpg', alt: 'Primary visualization featuring data from 30,000 Tweets', caption: 'Primary visualization featuring data from 30,000 Tweets'},
+        {path: 'assets/images/covid19_emotion_analysis_3.jpg', alt: 'Secondary visualization with Tweets clustered by location data and coloured according to predominant emotion', caption: 'Secondary visualization with Tweets clustered by location data and coloured according to predominant emotion'},
+        {path: 'assets/images/covid19_emotion_analysis_4.jpg', alt: 'Schema detailing web app files and data flow', caption: 'Schema detailing web app files and data flow'}
+      ]
     },
     { 
       title: 'Traces of You', 
@@ -67,7 +82,15 @@ $(document).ready(function() {
       links: [
         {type: 'video demo', url: 'https://www.youtube.com/watch?v=nL7VJ2ocClI', name: 'YouTube'}
       ],
-      videoPath: 'assets/videos/tracesofyou.mp4' 
+      videoPath: 'assets/videos/tracesofyou.mp4',
+      images: [
+        {path: 'assets/images/traces_of_you_1.jpg', alt: 'Dining room scene', caption: 'Dining room scene'},
+        {path: 'assets/images/traces_of_you_2.jpg', alt: 'Ceiling fan in Blender', caption: 'Creation of the living room ceiling fan in Blender'},
+        {path: 'assets/images/traces_of_you_3.jpg', alt: 'Digital sketch of the game scenes', caption: 'Sketch of the game scenes, created in Adobe Illustrator'},
+        {path: 'assets/images/traces_of_you_4.jpg', alt: 'Digital sketch depicting the game scene navigation and colour scheme', caption: 'Sketch depicting the game navigation and colour scheme, created in Adobe Illustrator'},
+        {path: 'assets/images/traces_of_you_5.jpg', alt: '3D scene sketch of a ball bouncing down a foggy staircase', caption: 'Scene sketch representing an earlier concept, created in Unity'},
+        {path: 'assets/images/traces_of_you_6.jpg', alt: '3D scene sketch of a cube in a dark room lit by a ray of light', caption: 'Scene sketch representing an earlier concept, created in Unity'}
+      ]
     },
     { 
       title: 'Body Controller', 
@@ -78,7 +101,12 @@ $(document).ready(function() {
       links: [
         {type: 'video demo', url: 'https://youtu.be/tfeZZ38HUl0', name: 'YouTube'}
       ],
-      videoPath: 'assets/videos/bodycontroller.mp4' 
+      videoPath: 'assets/videos/bodycontroller.mp4',
+      images: [
+        {path: 'assets/images/body_controller_1.jpg', alt: 'Person standing on balance board using body controller', caption: 'Person using body controller'},
+        {path: 'assets/images/body_controller_2.jpg', alt: 'Hand wearing body controller piece around palm', caption: 'Body controller hand attachment'},
+        {path: 'assets/images/body_controller_3.jpg', alt: 'A digital scene of a skateboard rolling down a city street', caption: 'Screenshot of the digital game'}
+      ]
     },
     { 
       title: 'Fly Me to the Moon', 
@@ -89,7 +117,12 @@ $(document).ready(function() {
       links: [
         {type: 'game link', url: 'https://amandaclement.itch.io/fly-me-to-the-moon', name: 'itch.io'}
       ],
-      videoPath: 'assets/videos/flymetothemoon.mp4' },
+      videoPath: 'assets/videos/flymetothemoon.mp4',
+      images: [
+        {path: 'assets/images/fly_me_to_the_moon_1.jpg', alt: 'A digital scene of an astronaut collecting a spacecraft wing', caption: 'Screenshot of the game'},
+        {path: 'assets/images/fly_me_to_the_moon_2.jpg', alt: 'A digital scene of an island', caption: 'Screenshot showing part of the game map'}
+      ]
+    },
     { 
       title: 'Escape', 
       type: 'Game Development &ensp;/&ensp; Game Design', 
@@ -99,7 +132,12 @@ $(document).ready(function() {
       links: [
         {type: 'game link', url: 'https://amandaclement.itch.io/escape', name: 'itch.io'}
       ],
-      videoPath: 'assets/videos/escape.mp4' 
+      videoPath: 'assets/videos/escape.mp4',
+      images: [
+        {path: 'assets/images/escape_1.jpg', alt: 'A digital scene of a radio on a dark campsite', caption: 'Screenshot of the game'},
+        {path: 'assets/images/escape_2.jpg', alt: 'A digital scene of some junk and a sledgehammer on a dark campsite', caption: 'Screenshot of the game'},
+        {path: 'assets/images/escape_3.jpg', alt: 'A digital scene of a campsite illuminated by a flare gun', caption: 'Screenshot of the game'}
+      ]
     },
     { 
       title: 'Drawing With Sound', 
@@ -108,10 +146,15 @@ $(document).ready(function() {
       year: 2020, 
       description: 'An interactive web-based experience that illustrates sound using visual patterns. Changes in specific audio characteristics picked up by the user\'s microphone are translated into visual elements that combine to create a symphony of shapes and colors.', 
       links: [
-        {type: 'video demo', url: 'https://youtu.be/B9YfdWzWuwI', name: 'YouTube'},
+        {type: 'video demo', url: 'https://youtu.be/2Wt3PrNOahQ', name: 'YouTube'},
         {type: 'source code', url: 'https://github.com/amandaclement/drawingWithSound', name: 'GitHub'}
       ],
-      videoPath: 'assets/videos/drawingwithsound.mp4' 
+      videoPath: 'assets/videos/drawingwithsound.mp4',
+      images: [
+        {path: 'assets/images/drawing_with_sound_1.jpg', alt: 'Visualization creation page', caption: 'Visualization creation page'},
+        {path: 'assets/images/drawing_with_sound_2.jpg', alt: 'Visualization creation page pop-up', caption: 'Visualization creation page pop-up'},
+        {path: 'assets/images/drawing_with_sound_3.jpg', alt: 'Collective design page', caption: 'Collective design page'}
+      ]
     },
     { 
       title: 'When the Sun Goes Down', 
@@ -122,7 +165,13 @@ $(document).ready(function() {
       links: [
         {type: 'game link', url: 'https://amandaclement.itch.io/when-the-sun-goes-down', name: 'itch.io'}
       ],
-      videoPath: 'assets/videos/whenthesun.mp4' },
+      videoPath: 'assets/videos/whenthesun.mp4',
+      images: [
+        {path: 'assets/images/when_the_sun_goes_down_1.jpg', alt: 'A pixel-art city', caption: 'Screenshot of the game'},
+        {path: 'assets/images/when_the_sun_goes_down_2.jpg', alt: 'A pixel-art corridor', caption: 'Screenshot of the game'},
+        {path: 'assets/images/when_the_sun_goes_down_3.jpg', alt: 'A pixel-art moon', caption: 'Screenshot of the game'}
+      ]
+    },
     { 
       title: 'Musical Shapes', 
       type: 'Web Design &ensp;/&ensp; Creative Coding', 
@@ -133,7 +182,13 @@ $(document).ready(function() {
         {type: 'project website', url: 'https://amandaclement.github.io/cart253/projects/project3/index.html', name: 'Link'},
         {type: 'source code', url: 'https://github.com/amandaclement/cart253/tree/master/projects/project3', name: 'GitHub'}
       ],
-      videoPath: 'assets/videos/musicalshapes.mp4' 
+      videoPath: 'assets/videos/musicalshapes.mp4',
+      images: [
+        {path: 'assets/images/musical_shapes_1.jpg', alt: 'A wireframe depiction of two concentric spheres', caption: 'First project scene'},
+        {path: 'assets/images/musical_shapes_2.jpg', alt: 'A wireframe depiction of a group of diamonds', caption: 'Second project scene'},
+        {path: 'assets/images/musical_shapes_3.jpg', alt: 'A wireframe depiction of flower', caption: 'Sketch of a responsive web scene representing an earlier concept'},
+        {path: 'assets/images/musical_shapes_4.jpg', alt: 'Concentric ellipses made up of fine lines', caption: 'Sketch of a responsive web scene representing an earlier concept'}
+      ]
     }
   ];
 

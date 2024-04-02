@@ -366,6 +366,7 @@ button:hover {
   text-align: center;
   background-color: var(--mid-color);
   margin: 0 auto;
+  overflow: hidden;
 }
 
 #project-content #carousel,
@@ -402,7 +403,7 @@ button:hover {
 
 #carousel figure video,
 #carousel figure img {
-  height: calc(100% - 2rem);
+  height: calc(100% - 2.5rem);
 }
 
 #carousel figure video {
@@ -410,7 +411,7 @@ button:hover {
 }
 
 #carousel figcaption {
-  height: 2rem;
+  height: 2.5rem;
   text-align: left;
   font-size: 0.9rem;
   font-style: italic;
@@ -432,8 +433,7 @@ button:hover {
 #carousel-buttons button { 
   width: 1.8rem;
   height: 1.8rem;
-  margin: 0 0.4rem;
-  margin-bottom: 3rem;
+  margin: 0.5rem 0.4rem 3rem 0.4rem;
   padding-bottom: 2.4px;
   background-color: var(--mid-color);
   color: var(--accent-color);
