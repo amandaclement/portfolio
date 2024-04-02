@@ -31,8 +31,10 @@ body,
 }
 
 #container-index header button a,
+#container-index header button p
 #container-about header button a,
-#container-cv .menu-active,
+#container-about header button p,
+#container-cv .menu-active p,
 #container-cv header button:hover,
 #container-cv header button:hover a,
 #container-cv header h1,
@@ -40,11 +42,11 @@ body,
   color: var(--base-color);
 }
 
-#container-index .menu-active,
+#container-index .menu-active p,
 #container-index header button:hover a,
 #container-index header h1,
 #container-index header nav a,
-#container-about .menu-active,
+#container-about .menu-active p,
 #container-about header button:hover,
 #container-about header button:hover a,
 #container-about header h1,
