@@ -30,6 +30,7 @@ body,
   background-color: var(--base-color);
 }
 
+button,
 #container-index header button a,
 #container-index header button p
 #container-about header button a,
