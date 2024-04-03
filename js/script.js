@@ -58,7 +58,7 @@ $(document).ready(function() {
     { 
       title: 'COVID-19 Emotion Map', 
       type: 'Web Development &ensp;/&ensp; Web Design &ensp;/&ensp; Data Visualization &ensp;/&ensp; Natural Language Processing', 
-      technologies: 'JavaScript &ensp;/&ensp; Node.js &ensp;/&ensp; Express.js &ensp;/&ensp; p5.js &ensp;/&ensp; HTML &ensp;/&ensp; CSS &ensp;/&ensp; MongoDB &ensp;/&ensp; Twitter API', 
+      technologies: 'JavaScript &ensp;/&ensp; Node.js &ensp;/&ensp; Express &ensp;/&ensp; p5.js &ensp;/&ensp; HTML &ensp;/&ensp; CSS &ensp;/&ensp; MongoDB &ensp;/&ensp; Twitter API', 
       year: 2022, 
       description: 'An interactive web-based data visualization illustrating the emotional impact of the COVID-19 pandemic. Each dot represents a Tweet posted on March 11th, 2020, the day the WHO declared the COVID-19 outbreak a global pandemic, coloured by emotion.<br><br>The visualization invites users to witness the emotions embedded within global discourse, painting a picture of collective sentiment in the face of adversity.', 
       links: [
@@ -142,9 +142,9 @@ $(document).ready(function() {
     { 
       title: 'Drawing With Sound', 
       type: 'Web Development &ensp;/&ensp; Web Design &ensp;/&ensp; Generative Art', 
-      technologies: 'JavaScript &ensp;/&ensp; PHP &ensp;/&ensp; p5.js &ensp;/&ensp; HTML &ensp;/&ensp; CSS', 
+      technologies: 'JavaScript &ensp;/&ensp; PHP &ensp;/&ensp; jQuery &ensp;/&ensp; p5.js &ensp;/&ensp; HTML &ensp;/&ensp; CSS &ensp;/&ensp; SQLite', 
       year: 2020, 
-      description: 'An interactive web-based experience that illustrates sound using visual patterns. Changes in specific audio characteristics picked up by the user\'s microphone are translated into visual elements that combine to create a symphony of shapes and colors.', 
+      description: 'An interactive web-based experience that illustrates sound using visual patterns. Changes in specific audio characteristics picked up by the user\'s microphone are translated into visual elements that combine to create a symphony of shapes and colors. The gallery page features a subset of each contributor\'s pattern, merged to form collective designs.', 
       links: [
         {type: 'video demo', url: 'https://youtu.be/2Wt3PrNOahQ', name: 'YouTube'},
         {type: 'source code', url: 'https://github.com/amandaclement/drawingWithSound', name: 'GitHub'}

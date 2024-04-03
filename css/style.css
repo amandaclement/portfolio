@@ -32,7 +32,7 @@ body,
 
 button,
 #container-index header button a,
-#container-index header button p
+#container-index header button p,
 #container-about header button a,
 #container-about header button p,
 #container-cv .menu-active p,
@@ -48,7 +48,6 @@ button,
 #container-index header h1,
 #container-index header nav a,
 #container-about .menu-active p,
-#container-about header button:hover,
 #container-about header button:hover a,
 #container-about header h1,
 #container-about header nav a,
@@ -516,10 +515,6 @@ button:hover {
 @media screen and (max-width: 830px) {
   .project-cell {
     flex: 0 0 100%;
-  }
-
-  header h1 {
-    display: none !important;
   }
 
   .row {
